@@ -191,7 +191,7 @@ blu_cmap = ListedColormap(blu_cmap)
 (ax, ax2) = add_gaussian(X, Y, Z2, ax, ax2, blu_cmap)
 plt.show()
 
-#################################
+###########3######################
 
 # Now to derive our updates!
 
@@ -216,24 +216,18 @@ K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
 print (K)
 
 # and so:
-mu_add = np.matmul(K, (z - np.matmul(H, mu_2)))
+mu_add = np.matmul(K, (z - np.matmul(H, np.transpose(mu2)))
 print (mu_add)
-mu_final = mu_2 + mu_add
+mu_final = np.transpose(mu2) + mu_add
 print(mu_final)
-
 Sigma_sub = np.matmul(K, np.matmul(H, Sigma2))
 Sigma_final = Sigma2 - Sigma_sub
 print(Sigma_final)
 
 Z_final = multivariate_gaussian(pos, np.transpose(mu_final), Sigma_final)
-Z_final /= 2 * 
 (ax, ax2) = plot_gaussian(X, Y, Z2, red_cmap)
 (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, blu_cmap)
 plt.show()
-
-
-# In[ ]:
-
 
 
 
