@@ -191,6 +191,46 @@ blu_cmap = ListedColormap(blu_cmap)
 (ax, ax2) = add_gaussian(X, Y, Z2, ax, ax2, blu_cmap)
 plt.show()
 
+#################################
+
+# Now to derive our updates!
+
+# We're only taking positional data, so let's use an observation
+# matrix that only selects for position:
+H = np.array([[1, 0], 
+              [0, 0]])
+
+# What about our measurements? Let's sketch that out:
+z = np.array([[2.4], 
+              [0]])
+R_t = np.array([[0.2, 0],
+                [0, 0]])
+
+# ...velocity is 0 because we didn't measure it! This will
+# work out later on in the math.
+
+# Our Kalman gain with all of this is:
+a = (H * Sigma2)
+b = ((H * Sigma2 * H.transpose()) + R_t)
+K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
+print (K)
+
+# and so:
+mu_add = np.matmul(K, (z - np.matmul(H, mu_2)))
+print (mu_add)
+mu_final = mu_2 + mu_add
+print(mu_final)
+
+Sigma_sub = np.matmul(K, np.matmul(H, Sigma2))
+Sigma_final = Sigma2 - Sigma_sub
+print(Sigma_final)
+
+Z_final = multivariate_gaussian(pos, np.transpose(mu_final), Sigma_final)
+Z_final /= 2 * 
+(ax, ax2) = plot_gaussian(X, Y, Z2, red_cmap)
+(ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, blu_cmap)
+plt.show()
+
 
 # In[ ]:
 
