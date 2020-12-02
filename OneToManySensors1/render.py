@@ -46,6 +46,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import gridspec
 import matplotlib.pylab as pl
 from matplotlib.colors import ListedColormap
+import numpy as np
 
 # Our 2-dimensional distribution will be over variables X and Y
 N = 60
