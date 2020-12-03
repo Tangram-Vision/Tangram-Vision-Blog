@@ -68,7 +68,7 @@ def colormap(cmap, axis_min, axis_max):
 def main():
 
     # Add our plotting space in 2D
-    X, Y = np.mgrid[-1:5:.01, -1:5:.01]
+    X, Y = np.mgrid[-1:5:0.02, -1:5:0.02]
 
     # Mean vector and covariance matrix
     mu = np.array([2.0, 2.0])
