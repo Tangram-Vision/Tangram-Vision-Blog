@@ -13,9 +13,10 @@ from scipy.stats import multivariate_normal
 
 def multivariate_gaussian(X, Y, mu, Sigma):
     pos = np.empty(X.shape + (2,))
-    pos[:, :, 0] = X; pos[:, :, 1] = Y
-    rv = multivariate_normal(mu, Sigma)
-    return rv.pdf(pos)
+    pos[:, :, 0] = X
+    pos[:, :, 1] = Y
+    return multivariate_normal(mu, Sigma).pdf(pos)
+
 
 def plot_gaussian(X1, Y1, Z1, cmap):
     # Create a surface plot and projected filled contour plot under it.
@@ -124,7 +125,7 @@ def main():
                   [0.0, 1.0]])
 
     # What about our measurements? Let's sketch that out:
-    z = np.array([[2.41],
+    z = np.array([[2.410],
                   [2.395]])
 
     R_t = np.array([[0.2, 0.0],
