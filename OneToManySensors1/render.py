@@ -72,12 +72,12 @@ def main():
     X, Y = np.mgrid[-1:5:0.02, -1:5:0.02]
 
     # Mean vector and covariance matrix
-    mu = np.array([2.0, 2.0])
+    mu = np.array([[2.0], [2.0]])
     Sigma = np.array([[0.2, 0.0],
                       [0.0, 0.8]])
 
     # The distribution on the variables X, Y packed into pos.
-    Z = multivariate_gaussian(X, Y, mu, Sigma)
+    Z = multivariate_gaussian(X, Y, mu.reshape(2), Sigma)
 
     plot_gaussian(X, Y, Z, colormap(pl.cm.Reds, 0.2, 1.0))
     plt.show()
@@ -85,13 +85,13 @@ def main():
     #Showing variance vs covariance
     Sigma_var = np.array([[0.5, 0.4],
                           [0.1, 0.8]])
-    Z_var = multivariate_gaussian(X, Y, mu, Sigma_var)
+    Z_var = multivariate_gaussian(X, Y, mu.reshape(2), Sigma_var)
 
     # Choose colormap
     plot_gaussian(X, Y, Z_var, colormap(pl.cm.Greens, 0.2, 1.0))
     plt.show()
 
-    delta_t = 0.2
+    delta_t = 1.0
     # ...seems reasonable.
 
     # Now let's add in our prediction matrix:
@@ -106,8 +106,9 @@ def main():
 
     Q = np.array([[0.2 , 0.0],
                   [0.0,  0.4]])
-
-    mu_pred = np.array([[2.44], [2.4]])
+    a1 = F @ mu
+    b1 = B * u
+    mu_pred = a1 + b1
     Sigma_pred = F @ Sigma @ F.T + Q
     Z2 = multivariate_gaussian(X, Y, mu_pred.reshape(2), Sigma_pred)
 
@@ -128,8 +129,8 @@ def main():
     z = np.array([[2.410],
                   [2.395]])
 
-    R_t = np.array([[0.2, 0.0],
-                    [0.0, 0.1]])
+    R_t = np.array([[0.0023, 0.0],
+                    [0.0, 0.003]])
 
     # Our Kalman gain with all of this is:
     a = (H @ Sigma_pred)
