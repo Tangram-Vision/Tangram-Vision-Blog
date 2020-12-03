@@ -103,8 +103,8 @@ def main():
     u = 2
     # ...pretty fast.
 
-    Q = np.array([[0.2 , 0.2],
-                  [0.5,  0.4]])
+    Q = np.array([[0.2 , 0.0],
+                  [0.0,  0.4]])
 
     mu_pred = np.array([[2.44], [2.4]])
     Sigma_pred = F @ Sigma @ F.T + Q
