@@ -131,9 +131,9 @@ u = 2
 Q = np.array([[0.2 , 0.2],
               [0.5,  0.4]])
 
-mu2 = np.array([[2.44], [2.4]])
-Sigma2 = F @ Sigma @ F.T + Q
-Z2 = multivariate_gaussian(pos, mu2.reshape(2), Sigma2)
+mu_pred = np.array([[2.44], [2.4]])
+Sigma_pred = F @ Sigma @ F.T + Q
+Z2 = multivariate_gaussian(pos, mu_pred.reshape(2), Sigma_pred)
 
 # Choose colormap
 cmap = pl.cm.Reds
@@ -157,7 +157,7 @@ plt.show()
 # We're only taking positional data, so let's use an observation
 # matrix that only selects for position:
 H = np.array([[1, 0],
-              [0, 0]])
+              [0, 1]])
 
 # What about our measurements? Let's sketch that out:
 z = np.array([[2.4],
@@ -170,15 +170,15 @@ R_t = np.array([[0.2, 0],
 # work out later on in the math.
 
 # Our Kalman gain with all of this is:
-a = (H @ Sigma2)
-b = ((H @ Sigma2 @ H.T) + R_t)
+a = (H @ Sigma_pred)
+b = ((H @ Sigma_pred @ H.T) + R_t)
 K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
 
 # and so:
-mu_add = K @ (z - (H @ mu2))
-mu_final = (mu2 + mu_add).reshape((2,-1))
-Sigma_sub = K @ (H @ Sigma2)
-Sigma_final = Sigma2 - Sigma_sub
+mu_add = K @ (z - (H @ mu_pred))
+mu_final = (mu_pred + muadd).reshape((2,-1))
+Sigma_sub = K @ (H @ Sigma_pred)
+Sigma_final = Sigma_pred - Sigma_sub
 
 Z_final = multivariate_gaussian(pos, mu_final.T, Sigma_final)
 
