@@ -18,7 +18,7 @@ X, Y = np.meshgrid(X, Y)
 
 # Mean vector and covariance matrix
 mu = np.array([2., 2])
-Sigma = np.array([[ 0.2 , 0], 
+Sigma = np.array([[ 0.2 , 0],
                   [0,  0.8]])
 
 # Pack X and Y into a single 3-dimensional array
@@ -55,8 +55,8 @@ red_cmap = ListedColormap(red_cmap)
 
 def plot_gaussian(X1, Y1, Z1, cmap):
     # Create a surface plot and projected filled contour plot under it.
-    fig = plt.figure(figsize=(16,8)) 
-    gs = gridspec.GridSpec(1, 2, width_ratios=[2,2]) 
+    fig = plt.figure(figsize=(16,8))
+    gs = gridspec.GridSpec(1, 2, width_ratios=[2,2])
     ax = plt.subplot(gs[0], projection='3d')
     ax.plot_surface(X1, Y1, Z1, rstride=3, cstride=3, linewidth=1, antialiased=True,
                 cmap=cmap)
@@ -68,14 +68,14 @@ def plot_gaussian(X1, Y1, Z1, cmap):
     ax.set_ylim(mid_y - max_range, mid_y + max_range)
     ax.set_zlim(0, 0.5)
     ax.view_init(25, 290)
-    
+
     ax2 = plt.subplot(gs[1])
     cset2 = ax2.contourf(X1, Y1, Z1, cmap=cmap)
     ax2.axis('equal')
     ax2.grid('true')
     plt.tight_layout()
     return (ax, ax2)
-    
+
 plot_gaussian(X, Y, Z, red_cmap)
 plt.show()
 
@@ -83,8 +83,8 @@ plt.show()
 # In[172]:
 
 
-#Showing variance vs covariance 
-Sigma_var = np.array([[ 0.5 , 0.4], 
+#Showing variance vs covariance
+Sigma_var = np.array([[ 0.5 , 0.4],
                   [0.1,  0.8]])
 Z_var = multivariate_gaussian(pos, mu, Sigma_var)
 
@@ -120,23 +120,22 @@ def add_gaussian(X1, Y1, Z1, ax, ax2, cmap):
 delta_t = 0.2
 # ...seems reasonable.
 
-# Now let's add in our prediction matrix: 
-F = np.array([[1 , delta_t], 
+# Now let's add in our prediction matrix:
+F = np.array([[1 , delta_t],
               [0,  1]])
 
 # ...and our control matrix:
-B = np.array([[(delta_t * delta_t)/2], [delta_t]]) 
+B = np.array([[(delta_t**2)/2], [delta_t]])
 
 u = 2
 # ...pretty fast.
 
-Q = np.array([[0.2 , 0.2], 
+Q = np.array([[0.2 , 0.2],
               [0.5,  0.4]])
 
-mu2 = np.array([2.44, 
-                2.4])
-Sigma2 = F * Sigma * F.transpose() + Q
-Z2 = multivariate_gaussian(pos, mu2, Sigma2)
+mu2 = np.array([[2.44], [2.4]])
+Sigma2 = F @ Sigma @ F.T + Q
+Z2 = multivariate_gaussian(pos, mu2.reshape(2), Sigma2)
 
 # Choose colormap
 cmap = pl.cm.Reds
@@ -159,12 +158,13 @@ plt.show()
 
 # We're only taking positional data, so let's use an observation
 # matrix that only selects for position:
-H = np.array([[1, 0], 
+H = np.array([[1, 0],
               [0, 0]])
 
 # What about our measurements? Let's sketch that out:
-z = np.array([[2.4], 
+z = np.array([[2.4],
               [0]])
+
 R_t = np.array([[0.2, 0],
                 [0, 0]])
 
@@ -172,21 +172,18 @@ R_t = np.array([[0.2, 0],
 # work out later on in the math.
 
 # Our Kalman gain with all of this is:
-a = (H * Sigma2)
-b = ((H * Sigma2 * H.transpose()) + R_t)
+a = (H @ Sigma2)
+b = ((H @ Sigma2 @ H.T) + R_t)
 K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
-print (K)
 
 # and so:
-mu_add = np.matmul(K, (z - np.matmul(H, np.transpose(mu2)))
-print (mu_add)
-mu_final = np.transpose(mu2) + mu_add
-print(mu_final)
-Sigma_sub = np.matmul(K, np.matmul(H, Sigma2))
+mu_add = K @ (z - (H @ mu2))
+mu_final = (mu2 + mu_add).reshape((2,-1))
+Sigma_sub = K @ (H @ Sigma2)
 Sigma_final = Sigma2 - Sigma_sub
-print(Sigma_final)
 
-Z_final = multivariate_gaussian(pos, np.transpose(mu_final), Sigma_final)
+Z_final = multivariate_gaussian(pos, mu_final.T, Sigma_final)
+
 (ax, ax2) = plot_gaussian(X, Y, Z2, red_cmap)
 (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, blu_cmap)
 plt.show()
