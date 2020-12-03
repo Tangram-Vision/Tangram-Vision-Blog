@@ -141,11 +141,11 @@ def main():
                   [0.0, 1.0]])
 
     # What about our measurements? Let's sketch that out:
-    z = np.array([[2.4],
-                  [0.0]])
+    z = np.array([[2.41],
+                  [2.395]])
 
     R_t = np.array([[0.2, 0.0],
-                    [0.0, 0.0]])
+                    [0.0, 0.1]])
 
     # Our Kalman gain with all of this is:
     a = (H @ Sigma_pred)
