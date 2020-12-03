@@ -69,7 +69,7 @@ def colormap(cmap, axis_min, axis_max):
 def main():
 
     # Add our plotting space in 2D
-    X, Y = np.mgrid[-1:5:0.02, -1:5:0.02]
+    X, Y = np.mgrid[-1:8:0.02, -1:8:0.02]
 
     # Mean vector and covariance matrix
     mu = np.array([[2.0], [2.0]])
@@ -80,7 +80,7 @@ def main():
     Z = multivariate_gaussian(X, Y, mu.reshape(2), Sigma)
 
     plot_gaussian(X, Y, Z, colormap(pl.cm.Reds, 0.2, 1.0))
-    plt.show()
+    # plt.show()
 
     #Showing variance vs covariance
     Sigma_var = np.array([[0.5, 0.4],
@@ -89,7 +89,7 @@ def main():
 
     # Choose colormap
     plot_gaussian(X, Y, Z_var, colormap(pl.cm.Greens, 0.2, 1.0))
-    plt.show()
+    # plt.show()
 
     delta_t = 1.0
     # ...seems reasonable.
@@ -98,17 +98,16 @@ def main():
     F = np.array([[1.0, delta_t],
                   [0.0,     1.0]])
 
+
     # ...and our control matrix:
     B = np.array([[(delta_t**2)/2], [delta_t]])
 
     u = 2
-    # ...pretty fast.
 
     Q = np.array([[0.2 , 0.0],
                   [0.0,  0.4]])
-    a1 = F @ mu
-    b1 = B * u
-    mu_pred = a1 + b1
+
+    mu_pred = F @ mu + B * u
     Sigma_pred = F @ Sigma @ F.T + Q
     Z2 = multivariate_gaussian(X, Y, mu_pred.reshape(2), Sigma_pred)
 
@@ -117,7 +116,6 @@ def main():
     plt.show()
 
     ##################################
-
     # Now to derive our updates!
 
     # We're only taking positional data, so let's use an observation
@@ -129,13 +127,15 @@ def main():
     z = np.array([[2.410],
                   [2.395]])
 
-    R_t = np.array([[0.0023, 0.0],
-                    [0.0, 0.003]])
+    R_t = np.array([[0.8, 0.0],
+                    [0.0, 0.5]])
 
     # Our Kalman gain with all of this is:
+    # K = a/b, basically
     a = (H @ Sigma_pred)
     b = ((H @ Sigma_pred @ H.T) + R_t)
-    K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
+    K = np.linalg.solve(b, a)
+    print(f"\name: \n{a}, \nb: \n{b}, \nK: \n{K}")
 
     # and so:
     mu_add = K @ (z - (H @ mu_pred))
