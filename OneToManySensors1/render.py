@@ -21,7 +21,7 @@ def plot_gaussian(X1, Y1, Z1, cmap):
     # Create a surface plot and projected filled contour plot under it.
     fig = plt.figure(figsize=(16,8))
     gs = gridspec.GridSpec(1, 2, width_ratios=[2,2])
-    ax = plt.subplot(gs[0], projection='3d')
+    ax = fig.add_subplot(gs[0], projection='3d')
     ax.plot_surface(X1, Y1, Z1, rstride=3, cstride=3, linewidth=1, antialiased=True,
                 cmap=cmap)
     max_range = np.array([X1.max()-X1.min(), Y1.max()-Y1.min(), Z1.max()-Z1.min()]).max() / 2.0
@@ -33,7 +33,7 @@ def plot_gaussian(X1, Y1, Z1, cmap):
     ax.set_zlim(0, 0.5)
     ax.view_init(25, 290)
 
-    ax2 = plt.subplot(gs[1])
+    ax2 = fig.add_subplot(gs[1])
     cset2 = ax2.contourf(X1, Y1, Z1, cmap=cmap)
     ax2.axis('equal')
     ax2.grid('true')
