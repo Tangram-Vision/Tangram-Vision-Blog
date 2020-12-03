@@ -143,7 +143,7 @@ def main():
     print(f"\nmu_add: \n{mu_add}, \nmu_final: \n{mu_final}")
     print(f"\nSigma_sub: \n{Sigma_sub}, \nSigma_final: \n{Sigma_final}")
 
-    Z_final = multivariate_gaussian(X, Y, mu_final.T, Sigma_final)
+    Z_final = multivariate_gaussian(X, Y, mu_final.reshape(2), Sigma_final)
 
     (ax, ax2) = plot_gaussian(X, Y, Z2, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
