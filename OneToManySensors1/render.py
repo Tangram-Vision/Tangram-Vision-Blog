@@ -141,8 +141,8 @@ def main():
     mu_final = (mu_pred + mu_add)
     Sigma_sub = K @ (H @ Sigma_pred)
     Sigma_final = Sigma_pred - Sigma_sub
-    print(f"\nmu_add: \n{mu_add}, \nmu_final: \n{mu_final}")
-    print(f"\nSigma_sub: \n{Sigma_sub}, \nSigma_final: \n{Sigma_final}")
+    print(f"\nmu_add: \n{mu_add},\nmu_pred:\n{mu_pred},\nmu_final: \n{mu_final}")
+    print(f"\nSigma_sub: \n{Sigma_sub},\nSigma_pred:\n{Sigma_pred},\nSigma_final: \n{Sigma_final}")
 
     Z_final = multivariate_gaussian(X, Y, mu_final.reshape(2), Sigma_final)
 
