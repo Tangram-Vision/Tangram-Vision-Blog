@@ -137,7 +137,7 @@ def main():
 
     # and so:
     mu_add = K @ (z - (H @ mu_pred))
-    mu_final = (mu_pred + mu_add).reshape((2,-1))
+    mu_final = (mu_pred + mu_add)
     Sigma_sub = K @ (H @ Sigma_pred)
     Sigma_final = Sigma_pred - Sigma_sub
     print(f"\nmu_add: \n{mu_add}, \nmu_final: \n{mu_final}")
