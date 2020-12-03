@@ -147,9 +147,6 @@ def main():
     R_t = np.array([[0.2, 0.0],
                     [0.0, 0.0]])
 
-    # ...velocity is 0 because we didn't measure it! This will
-    # work out later on in the math.
-
     # Our Kalman gain with all of this is:
     a = (H @ Sigma_pred)
     b = ((H @ Sigma_pred @ H.T) + R_t)
@@ -166,6 +163,7 @@ def main():
     (ax, ax2) = plot_gaussian(X, Y, Z2, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
     plt.show()
+
 
 if __name__ == "__main__":
     main()
