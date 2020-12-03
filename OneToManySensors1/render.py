@@ -83,9 +83,9 @@ def main():
     X, Y = np.meshgrid(X, Y)
 
     # Mean vector and covariance matrix
-    mu = np.array([2., 2])
-    Sigma = np.array([[ 0.2 , 0],
-                      [0,  0.8]])
+    mu = np.array([2.0, 2.0])
+    Sigma = np.array([[0.2, 0.0],
+                      [0.0, 0.8]])
 
     # Pack X and Y into a single 3-dimensional array
     pos = np.empty(X.shape + (2,))
@@ -99,8 +99,8 @@ def main():
     plt.show()
 
     #Showing variance vs covariance
-    Sigma_var = np.array([[ 0.5, 0.4],
-                          [ 0.1, 0.8]])
+    Sigma_var = np.array([[0.5, 0.4],
+                          [0.1, 0.8]])
     Z_var = multivariate_gaussian(pos, mu, Sigma_var)
 
     # Choose colormap
@@ -111,8 +111,8 @@ def main():
     # ...seems reasonable.
 
     # Now let's add in our prediction matrix:
-    F = np.array([[1 , delta_t],
-                  [0,  1]])
+    F = np.array([[1.0, delta_t],
+                  [0.0,     1.0]])
 
     # ...and our control matrix:
     B = np.array([[(delta_t**2)/2], [delta_t]])
@@ -137,15 +137,15 @@ def main():
 
     # We're only taking positional data, so let's use an observation
     # matrix that only selects for position:
-    H = np.array([[1, 0],
-                  [0, 1]])
+    H = np.array([[1.0, 0.0],
+                  [0.0, 1.0]])
 
     # What about our measurements? Let's sketch that out:
     z = np.array([[2.4],
-                  [0]])
+                  [0.0]])
 
-    R_t = np.array([[0.2, 0],
-                    [0, 0]])
+    R_t = np.array([[0.2, 0.0],
+                    [0.0, 0.0]])
 
     # ...velocity is 0 because we didn't measure it! This will
     # work out later on in the math.
