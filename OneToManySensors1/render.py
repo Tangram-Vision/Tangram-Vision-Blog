@@ -80,12 +80,10 @@ plot_gaussian(X, Y, Z, red_cmap)
 plt.show()
 
 
-# In[172]:
-
 
 #Showing variance vs covariance
-Sigma_var = np.array([[ 0.5 , 0.4],
-                  [0.1,  0.8]])
+Sigma_var = np.array([[ 0.5, 0.4],
+                      [ 0.1, 0.8]])
 Z_var = multivariate_gaussian(pos, mu, Sigma_var)
 
 # Choose colormap
