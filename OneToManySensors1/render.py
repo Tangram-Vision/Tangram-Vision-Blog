@@ -9,23 +9,13 @@ from matplotlib import gridspec
 import matplotlib.pylab as pl
 from matplotlib.colors import ListedColormap
 import numpy as np
+from scipy.stats import multivariate_normal
 
-def multivariate_gaussian(pos, mu, Sigma):
-    """Return the multivariate Gaussian distribution on array pos.
-
-    pos is an array constructed by packing the meshed arrays of variables
-    x_1, x_2, x_3, ..., x_k into its _last_ dimension.
-    """
-    n = mu.shape[0]
-    Sigma_det = np.linalg.det(Sigma)
-    Sigma_inv = np.linalg.inv(Sigma)
-    N = np.sqrt((2*np.pi)**n * Sigma_det)
-    # This einsum call calculates (x-mu)T.Sigma-1.(x-mu) in a vectorized
-    # way across all the input variables.
-    fac = np.einsum('...k,kl,...l->...', pos-mu, Sigma_inv, pos-mu)
-
-    return np.exp(-fac / 2) / N
-
+def multivariate_gaussian(X, Y, mu, Sigma):
+    pos = np.empty(X.shape + (2,))
+    pos[:, :, 0] = X; pos[:, :, 1] = Y
+    rv = multivariate_normal(mu, Sigma)
+    return rv.pdf(pos)
 
 def plot_gaussian(X1, Y1, Z1, cmap):
     # Create a surface plot and projected filled contour plot under it.
@@ -76,24 +66,17 @@ def colormap(cmap, axis_min, axis_max):
 
 
 def main():
-    # Our 2-dimensional distribution will be over variables X and Y
-    N = 60
-    X = np.linspace(-1, 5, N)
-    Y = np.linspace(-1, 5, N)
-    X, Y = np.meshgrid(X, Y)
+
+    # Add our plotting space in 2D
+    X, Y = np.mgrid[-1:5:.01, -1:5:.01]
 
     # Mean vector and covariance matrix
     mu = np.array([2.0, 2.0])
     Sigma = np.array([[0.2, 0.0],
                       [0.0, 0.8]])
 
-    # Pack X and Y into a single 3-dimensional array
-    pos = np.empty(X.shape + (2,))
-    pos[:, :, 0] = X
-    pos[:, :, 1] = Y
-
     # The distribution on the variables X, Y packed into pos.
-    Z = multivariate_gaussian(pos, mu, Sigma)
+    Z = multivariate_gaussian(X, Y, mu, Sigma)
 
     plot_gaussian(X, Y, Z, colormap(pl.cm.Reds, 0.2, 1.0))
     plt.show()
@@ -101,11 +84,11 @@ def main():
     #Showing variance vs covariance
     Sigma_var = np.array([[0.5, 0.4],
                           [0.1, 0.8]])
-    Z_var = multivariate_gaussian(pos, mu, Sigma_var)
+    Z_var = multivariate_gaussian(X, Y, mu, Sigma_var)
 
     # Choose colormap
     plot_gaussian(X, Y, Z_var, colormap(pl.cm.Reds, 0.2, 1.0))
-    plt.show()
+    # plt.show()
 
     delta_t = 0.2
     # ...seems reasonable.
@@ -125,11 +108,11 @@ def main():
 
     mu_pred = np.array([[2.44], [2.4]])
     Sigma_pred = F @ Sigma @ F.T + Q
-    Z2 = multivariate_gaussian(pos, mu_pred.reshape(2), Sigma_pred)
+    Z2 = multivariate_gaussian(X, Y, mu_pred.reshape(2), Sigma_pred)
 
     (ax, ax2) = plot_gaussian(X, Y, Z, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z2, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
-    plt.show()
+    # plt.show()
 
     ##################################
 
@@ -157,12 +140,14 @@ def main():
     mu_final = (mu_pred + mu_add).reshape((2,-1))
     Sigma_sub = K @ (H @ Sigma_pred)
     Sigma_final = Sigma_pred - Sigma_sub
+    print(f"\nmu_add: \n{mu_add}, \nmu_final: \n{mu_final}")
+    print(f"\nSigma_sub: \n{Sigma_sub}, \nSigma_final: \n{Sigma_final}")
 
-    Z_final = multivariate_gaussian(pos, mu_final.T, Sigma_final)
+    Z_final = multivariate_gaussian(X, Y, mu_final.T, Sigma_final)
 
     (ax, ax2) = plot_gaussian(X, Y, Z2, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
-    plt.show()
+    # plt.show()
 
 
 if __name__ == "__main__":
