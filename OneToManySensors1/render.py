@@ -176,7 +176,7 @@ K = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
 
 # and so:
 mu_add = K @ (z - (H @ mu_pred))
-mu_final = (mu_pred + muadd).reshape((2,-1))
+mu_final = (mu_pred + mu_add).reshape((2,-1))
 Sigma_sub = K @ (H @ Sigma_pred)
 Sigma_final = Sigma_pred - Sigma_sub
 
