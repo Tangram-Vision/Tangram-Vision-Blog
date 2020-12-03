@@ -88,7 +88,7 @@ def main():
     Z_var = multivariate_gaussian(X, Y, mu, Sigma_var)
 
     # Choose colormap
-    plot_gaussian(X, Y, Z_var, colormap(pl.cm.Reds, 0.2, 1.0))
+    plot_gaussian(X, Y, Z_var, colormap(pl.cm.Greens, 0.2, 1.0))
     plt.show()
 
     delta_t = 0.2
