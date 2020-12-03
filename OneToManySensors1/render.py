@@ -88,7 +88,7 @@ def main():
 
     # Choose colormap
     plot_gaussian(X, Y, Z_var, colormap(pl.cm.Reds, 0.2, 1.0))
-    # plt.show()
+    plt.show()
 
     delta_t = 0.2
     # ...seems reasonable.
@@ -112,7 +112,7 @@ def main():
 
     (ax, ax2) = plot_gaussian(X, Y, Z, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z2, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
-    # plt.show()
+    plt.show()
 
     ##################################
 
@@ -147,7 +147,7 @@ def main():
 
     (ax, ax2) = plot_gaussian(X, Y, Z2, colormap(pl.cm.Reds, 0.3, 0.3))
     (ax, ax2) = add_gaussian(X, Y, Z_final, ax, ax2, colormap(pl.cm.Blues, 0.2, 1.0))
-    # plt.show()
+    plt.show()
 
 
 if __name__ == "__main__":
