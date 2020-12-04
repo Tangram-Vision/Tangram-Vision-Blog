@@ -128,7 +128,7 @@ def main():
     (ax, ax2) = plot_gaussian(X, Y, mu_state_meas, Sigma_state_meas, colormap(pl.cm.Blues, 0.0, 0.9))
 
     ##################################
-    # Incorporating measurements
+    # Update - Incorporating measurements
 
     z = mu_state_meas + np.array([[0.1], [-0.3]])
     R_t = np.array([[3.0, 0.3],
@@ -136,26 +136,31 @@ def main():
 
     (ax, ax2) = add_gaussian(X, Y, z, R_t, ax, ax2, colormap(pl.cm.PuRd, 0.0, 0.5))
 
-    # Our Kalman gain with all of this is:
+    # Our Kalman gain can be expressed as:
     # K = a/b, with a being
     a = H @ Sigma_pred
-    # ...and b being 
+    # ...and b being
     b = (H @ Sigma_pred @ H.T) + R_t
-    # ...which we can solve for with 
+
+    # Set up as a linear system, we then get:
+    #
+    #    b @ K = a
+    #
+    # ...which we can solve for with
     K = np.linalg.solve(b, a)
 
     # and so:
     mu_add = K @ (z - (H @ mu_pred))
     mu_final = (mu_pred + mu_add)
-    
-    # Factor out the Sigma_pred from each side, and you get: 
+
+    # Factor out the Sigma_pred from each side, and you get:
     Sigma_fac = np.identity(2) - (K @ H)
     Sigma_final = Sigma_fac @ Sigma_pred
 
     # This is a tricky step. For some updates, Sigma_final can lose its
     # positive semi-definite property. There are elegant mathematical ways to go around this
     # (see https://en.wikipedia.org/wiki/Kalman_filter#Square_root_form for instance)
-    # but we're going to take the easy way out here. 
+    # but we're going to take the easy way out here.
     Sigma_final[Sigma_final < 0] = 0
     print(f"\nmu_add: \n{mu_add},\nmu_pred:\n{mu_pred},\nmu_final: \n{mu_final}")
     print(f"Sigma_pred:\n{Sigma_pred},\nSigma_final: \n{Sigma_final}")
