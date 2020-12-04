@@ -32,13 +32,16 @@ def plot_gaussian(X1, Y1, mu, Sigma, cmap):
     mid_z = (Z1.max()+Z1.min()) * 0.5
     ax.set_xlim(mid_x - max_range, mid_x + max_range)
     ax.set_ylim(mid_y - max_range, mid_y + max_range)
-    ax.set_zlim(0, 0.5)
+    ax.set_xlabel('position')
+    ax.set_ylabel('velocity')
     ax.view_init(25, 290)
 
     ax2 = fig.add_subplot(gs[1])
     cset2 = ax2.contourf(X1, Y1, Z1, cmap=cmap)
     ax2.axis('equal')
     ax2.grid('true')
+    ax2.set_xlabel('position')
+    ax2.set_ylabel('velocity')
     plt.tight_layout()
     return (ax, ax2)
 
@@ -56,7 +59,6 @@ def add_gaussian(X1, Y1, mu, Sigma, ax, ax2, cmap):
     mid_z = (Z1.max()+Z1.min()) * 0.5
     ax.set_xlim(mid_x - max_range, mid_x + max_range)
     ax.set_ylim(mid_y - max_range, mid_y + max_range)
-    ax.set_zlim(0, 0.5)
     ax.view_init(25, 290)
     cset2 = ax2.contourf(X1, Y1, Z1, cmap=cmap)
     ax2.axis('equal')
@@ -64,21 +66,34 @@ def add_gaussian(X1, Y1, mu, Sigma, ax, ax2, cmap):
     return (ax, ax2)
 
 
-def colormap(cmap, axis_min, axis_max):
+def colormap(cmap, alpha_min, alpha_max):
     colormap = cmap(np.arange(cmap.N))
-    colormap[:,-1] = np.linspace(0.2, 1.0, cmap.N)
+    colormap[:,-1] = np.linspace(alpha_min, alpha_max, cmap.N)
     return ListedColormap(colormap)
+
+def predict(delta_t, mu, Sigma):
+    # Now let's add in our prediction matrix:
+    F = np.array([[1.0, delta_t],
+                  [0.0,     1.0]])
+    # ...and our control matrix:
+    B = np.array([[(delta_t**2)/2], [delta_t]])
+    u = 2
+    Q = np.array([[0.2 , 0.0],
+                  [0.0,  0.4]])
+    mu_pred = F @ mu + B * u
+    Sigma_pred = F @ Sigma @ F.T + Q
+    return (mu_pred, Sigma_pred)
 
 
 def main():
 
     # Add our plotting space in 2D
-    X, Y = np.mgrid[-1:8:0.02, -1:8:0.02]
+    X, Y = np.mgrid[-1:8:0.01, -1:8:0.01]
 
     # Mean vector and covariance matrix
     mu = np.array([[2.0], [2.0]])
-    Sigma = np.array([[0.2, 0.0],
-                      [0.0, 0.8]])
+    Sigma = np.array([[0.8, 0.0],
+                      [0.0, 0.2]])
 
     plot_gaussian(X, Y, mu, Sigma, colormap(pl.cm.Reds, 0.2, 1.0))
 
@@ -86,71 +101,70 @@ def main():
     # Showing variance vs covariance
     Sigma_var = np.array([[0.5, 0.4],
                           [0.1, 0.8]])
-    plot_gaussian(X, Y, mu, Sigma_var, colormap(pl.cm.Greens, 0.2, 1.0))
+    plot_gaussian(X, Y, mu, Sigma_var, colormap(pl.cm.Reds, 0.2, 1.0))
 
 
     ##################################
     # Prediction
 
-    delta_t = 1.0
-
-    # Now let's add in our prediction matrix:
-    F = np.array([[1.0, delta_t],
-                  [0.0,     1.0]])
-
-    # ...and our control matrix:
-    B = np.array([[(delta_t**2)/2], [delta_t]])
-    u = 2
-    Q = np.array([[0.2 , 0.0],
-                  [0.0,  0.4]])
-
-    mu_pred = F @ mu + B * u
-    Sigma_pred = F @ Sigma @ F.T + Q
-
     (ax, ax2) = plot_gaussian(X, Y, mu, Sigma, colormap(pl.cm.Reds, 0.2, 0.9))
+    (mu_pred, Sigma_pred) = predict(1, mu, Sigma)
     (ax, ax2) = add_gaussian(X, Y, mu_pred, Sigma_pred, ax, ax2, colormap(pl.cm.Blues, 0.2, 0.9))
 
     ##################################
     # Moving predicted states into measurement space
 
+    X, Y = np.mgrid[-1:24:0.3, -1:24:0.03]
+
     # We're only taking positional data, so let's use an observation
     # matrix that only selects for position:
-    H = np.array([[1.0, 0.0],
-                  [0.0, 1.0]])
+    H = np.array([[3.28084, 0.0],
+                  [0.0, 3.28084]])
 
     # Here, mu and Sigma in the measurement space are the same
     # However, this might not hold in other cases. Best to graph anyway
     mu_state_meas = H @ mu_pred
     Sigma_state_meas = H @ Sigma_pred @ H.T
-    (ax, ax2) = plot_gaussian(X, Y, mu_state_meas, Sigma_state_meas, colormap(pl.cm.Reds, 0.2, 0.9))
+    (ax, ax2) = plot_gaussian(X, Y, mu_state_meas, Sigma_state_meas, colormap(pl.cm.Blues, 0.0, 0.9))
 
     ##################################
     # Incorporating measurements
 
-    z = np.array([[5.110],
-                  [4.395]])
-    R_t = np.array([[0.8, 0.1],
-                    [0.00, 0.5]])
+    z = mu_state_meas + np.array([[0.1], [-0.3]])
+    R_t = np.array([[3.0, 0.3],
+                    [0.0, 1.0]])
+
+    (ax, ax2) = add_gaussian(X, Y, z, R_t, ax, ax2, colormap(pl.cm.PuRd, 0.0, 0.5))
 
     # Our Kalman gain with all of this is:
     # K = a/b, with a being
-    a = (H @ Sigma_pred)
+    a = H @ Sigma_pred
     # ...and b being 
-    b = ((H @ Sigma_pred @ H.T) + R_t)
+    b = (H @ Sigma_pred @ H.T) + R_t
     # ...which we can solve for with 
     K = np.linalg.solve(b, a)
 
     # and so:
     mu_add = K @ (z - (H @ mu_pred))
     mu_final = (mu_pred + mu_add)
-    Sigma_sub = K @ H @ Sigma_pred
-    Sigma_final = Sigma_pred - Sigma_sub
-    print(f"\nmu_add: \n{mu_add},\nmu_pred:\n{mu_pred},\nmu_final: \n{mu_final}")
-    print(f"\nSigma_sub: \n{Sigma_sub},\nSigma_pred:\n{Sigma_pred},\nSigma_final: \n{Sigma_final}")
+    
+    # Factor out the Sigma_pred from each side, and you get: 
+    Sigma_fac = np.identity(2) - (K @ H)
+    Sigma_final = Sigma_fac @ Sigma_pred
 
-    (ax, ax2) = plot_gaussian(X, Y, mu_pred, Sigma_pred, colormap(pl.cm.Reds, 0.2, 0.9))
-    (ax, ax2) = add_gaussian(X, Y, mu_state_meas, Sigma_state_meas, ax, ax2, colormap(pl.cm.Reds, 0.2, 0.9))
-    (ax, ax2) = add_gaussian(X, Y, mu_final, Sigma_final, ax, ax2, colormap(pl.cm.Blues, 0.2, 0.9))
+    # This is a tricky step. For some updates, Sigma_final can lose its
+    # positive semi-definite property. There are elegant mathematical ways to go around this
+    # (see https://en.wikipedia.org/wiki/Kalman_filter#Square_root_form for instance)
+    # but we're going to take the easy way out here. 
+    Sigma_final[Sigma_final < 0] = 0
+    print(f"\nmu_add: \n{mu_add},\nmu_pred:\n{mu_pred},\nmu_final: \n{mu_final}")
+    print(f"Sigma_pred:\n{Sigma_pred},\nSigma_final: \n{Sigma_final}")
+
+    X, Y = np.mgrid[-1:8:0.01, -1:8:0.01]
+
+    (ax, ax2) = plot_gaussian(X, Y, mu_pred, Sigma_pred, colormap(pl.cm.Blues, 0.2, 0.9))
+    (ax, ax2) = add_gaussian(X, Y, mu, Sigma, ax, ax2, colormap(pl.cm.Reds, 0.2, 0.9))
+    (ax, ax2) = add_gaussian(X, Y, mu_final, Sigma_final, ax, ax2, colormap(pl.cm.Greens, 0.2, 0.9))
     plt.show()
 
 
