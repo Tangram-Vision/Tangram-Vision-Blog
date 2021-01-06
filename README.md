@@ -8,14 +8,14 @@ This repo holds code to generate the assets used in _Tangram Visions_, the compa
 - [Found here](https://medium.com/tangram-visions) on Medium
 - [Found here](https://dev.to/tangramvision) on Dev
 
-Find us wherever fine publications are syndicated. 
+Find us wherever fine publications are syndicated.
 
 ## Demo and Contribute
 
-We take pride in our posts, but we realize that they aren't perfect. If you have an improvement or interesting modification in mind, write it up and submit a merge request! We might incorporate it here, and better yet, into the blog. 
+We take pride in our posts, but we realize that they aren't perfect. If you have an improvement or interesting modification in mind, write it up and submit a merge request! We might incorporate it here, and better yet, into the blog.
 
 - Examples in different programming languages
-- Improved rendering 
+- Improved rendering
 - Improved mathematics and numerical techniques
 - etc, etc, etc
 
