@@ -1,0 +1,31 @@
+[Interface]
+# The address your computer will use on the VPN
+Address = 10.0.0.8/32
+
+# Load your privatekey from file
+PostUp = wg set %i private-key /etc/wireguard/privatekey
+# Also ping the vpn server to ensure the tunnel is initialized
+PostUp = ping -c1 10.0.0.1
+
+
+[Peer]
+# VPN server's wireguard public key
+PublicKey = {{ server_pubkey }}
+
+# Public IP address of your VPN server (USE YOURS!)
+# Use the floating IP address if you created one for your VPN server
+Endpoint = {{ hostvars['vpn_server'].ansible_host }}:51820
+
+# 10.0.0.0/24 is the VPN subnet
+AllowedIPs = 10.0.0.0/24
+
+# To also accept and send traffic to a VPC subnet at 10.110.0.0/20
+# AllowedIPs = 10.0.0.0/24,10.110.0.0/20
+
+# To accept traffic from and send traffic to any IP address through the VPN
+# AllowedIPs = 0.0.0.0/0
+
+# To keep a connection open from the server to this client
+# (Use if you're behind a NAT, e.g. on a home network, and
+# want peers to be able to connect to you.)
+# PersistentKeepalive = 25
