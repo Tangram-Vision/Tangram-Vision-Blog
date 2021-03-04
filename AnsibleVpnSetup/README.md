@@ -5,8 +5,7 @@ client.
 
 This is sample/reference code accompanying an explanatory blogpost:
 
-- Read on Notion
-- Read on Medium
+- Read on [Tangram Vision Blog](www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
 
 
 ## Installation
