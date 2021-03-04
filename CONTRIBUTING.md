@@ -6,7 +6,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 Tangram Vision hosts all of its Open-source Software (OSS) on both GitLab and GitHub. We do this for accessibility's sake. However, these repositories are maintained in GitLab; all bugs and contributions should therefore be made through GitLab.
 
-Visit the [repository homepage on GitLab here](https://gitlab.com/tangram-vision-oss/realsense-rust).
+Visit the [repository homepage on GitLab here](https://gitlab.com/tangram-vision-oss/tangram-visions-blog).
 
 ## tl;dr
 
