@@ -36,17 +36,17 @@ portable/shareable. To run it for yourself anyway:
         server_pubkey: $(echo $privkey | wg pubkey)"'
     ```
 
-1. Encrypt the private key (hit Ctrl-d twice after pasting key)
+2. Encrypt the private key (hit Ctrl-d twice after pasting key)
 
     ```
     ansible-vault encrypt_string --ask-vault-password --stdin-name server_privkey
     ```
 
-1. Add the public key and the encrypted private key to `group_vars/all.yml`
+3. Add the public key and the encrypted private key to `group_vars/all.yml`
 
-1. Change the server IP address in `inventory.ini`
+4. Change the server IP address in `inventory.ini`
 
-1. Run the playbook
+5. Run the playbook
 
     ```
     ansible-playbook -i inventory.ini --ask-vault-password --ask-become-pass playbook.yml
