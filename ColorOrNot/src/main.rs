@@ -56,20 +56,22 @@ fn create_bayer_img(
     let mut img_bayer_flat = img_rgb_flat;
     for x in 0..width {
         for y in 0..height {
-            // top left is B
-            if x % 2 == 0 && y % 2 == 0 {
-                *img_bayer_flat.get_mut_sample(0, x, y).unwrap() = 0;
-                *img_bayer_flat.get_mut_sample(1, x, y).unwrap() = 0;
-            }
-            // top right is G, bottom left is G
-            else if (x % 2 == 1 && y % 2 == 0) || (x % 2 == 0 && y % 2 == 1) {
-                *img_bayer_flat.get_mut_sample(0, x, y).unwrap() = 0;
-                *img_bayer_flat.get_mut_sample(2, x, y).unwrap() = 0;
-            }
-            // bottom right is R
-            else if x % 2 == 1 && y % 2 == 1 {
-                *img_bayer_flat.get_mut_sample(1, x, y).unwrap() = 0;
-                *img_bayer_flat.get_mut_sample(2, x, y).unwrap() = 0;
+            match color_from_pixel_coord(x, y) {
+                BayerColor::Blue => {
+                    // Cancel out the red and green channels
+                    *img_bayer_flat.get_mut_sample(0, x, y).unwrap() = 0;
+                    *img_bayer_flat.get_mut_sample(1, x, y).unwrap() = 0;
+                }
+                BayerColor::GreenOne | BayerColor::GreenTwo => {
+                    // Cancel out the red and blue channels
+                    *img_bayer_flat.get_mut_sample(0, x, y).unwrap() = 0;
+                    *img_bayer_flat.get_mut_sample(2, x, y).unwrap() = 0;
+                }
+                BayerColor::Red => {
+                    // Cancel out the green and blue channels
+                    *img_bayer_flat.get_mut_sample(1, x, y).unwrap() = 0;
+                    *img_bayer_flat.get_mut_sample(2, x, y).unwrap() = 0;
+                }
             }
         }
     }
@@ -81,45 +83,42 @@ fn nearest_neighbor_demosaicing(
     width: u32,
     height: u32,
 ) -> image::FlatSamples<std::vec::Vec<u8>> {
-    // Create nearest-neighbor interpolated image from our BGGR bayer pattern
     let mut img_nn_flat = img_bayer_flat;
     for x in 0..width {
         for y in 0..height {
-            // top left is B
-            if x % 2 == 0 && y % 2 == 0 {
-                // r from the bottom right
-                *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(0, x + 1, y + 1).unwrap();
-                // g from the top right
-                *img_nn_flat.get_mut_sample(1, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(1, x + 1, y).unwrap();
-            }
-            // top right is G
-            else if x % 2 == 1 && y % 2 == 0 {
-                // r from the bottom right
-                *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(0, x, y + 1).unwrap();
-                // b from the top left
-                *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(2, x - 1, y).unwrap();
-            }
-            // bottom left is G
-            else if x % 2 == 0 && y % 2 == 1 {
-                // r from the bottom right
-                *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(0, x + 1, y).unwrap();
-                // b from the top left
-                *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(2, x, y - 1).unwrap();
-            }
-            // bottom right is R
-            if x % 2 == 1 && y % 2 == 1 {
-                // g from the bottom left
-                *img_nn_flat.get_mut_sample(1, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(1, x - 1, y).unwrap();
-                // b from the top left
-                *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
-                    *img_nn_flat.get_mut_sample(2, x - 1, y - 1).unwrap();
+            match color_from_pixel_coord(x, y) {
+                BayerColor::Blue => {
+                    // Assign R from the bottom right
+                    *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(0, x + 1, y + 1).unwrap();
+                    // G from the top right
+                    *img_nn_flat.get_mut_sample(1, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(1, x + 1, y).unwrap();
+                }
+                BayerColor::GreenOne => {
+                    // R from the bottom right
+                    *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(0, x, y + 1).unwrap();
+                    // B from the top left
+                    *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(2, x - 1, y).unwrap();
+                }
+                BayerColor::GreenTwo => {
+                    // R from the bottom right
+                    *img_nn_flat.get_mut_sample(0, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(0, x + 1, y).unwrap();
+                    // B from the top left
+                    *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(2, x, y - 1).unwrap();
+                }
+                BayerColor::Red => {
+                    // G from the bottom left
+                    *img_nn_flat.get_mut_sample(1, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(1, x - 1, y).unwrap();
+                    // B from the top left
+                    *img_nn_flat.get_mut_sample(2, x, y).unwrap() =
+                        *img_nn_flat.get_mut_sample(2, x - 1, y - 1).unwrap();
+                }
             }
         }
     }
