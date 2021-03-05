@@ -16,10 +16,38 @@
 use anyhow::Result;
 use image::{open, Rgb};
 
-/// Create our bayer image.
+/// Identify what color filter should be simulated for a given pixel.
 ///
-/// Pattern for us is BGGR; to show this, zero out the other
-/// components that wouldn't be represented in the image.
+/// This program simulates working with a BGGR Bayer filter. This means that every 2x2 pixel patch has follows this
+/// pattern:
+///
+/// | B  | G1 |
+/// | G2 | R  |
+///
+/// ...where B is blue, G1 and G2 are green, and R is red.
+pub enum BayerColor {
+    Red,
+    GreenOne,
+    GreenTwo,
+    Blue,
+}
+
+/// Derive the simulated color filter value for a given pixel coordinate for a BGGR Bayer filter.
+///
+/// We can use some row+column logic to derive when a given pixel coordinate should have a B, G, or R filter at any
+/// point in an image. We'll use this to create a synthetic Bayer image from a given RGB picture.
+fn color_from_pixel_coord(x: u32, y: u32) -> BayerColor {
+    if x % 2 == 0 && y % 2 == 0 {
+        BayerColor::Blue
+    } else if x % 2 == 1 && y % 2 == 0 {
+        BayerColor::GreenOne
+    } else if x % 2 == 0 && y % 2 == 1 {
+        BayerColor::GreenTwo
+    } else {
+        BayerColor::Red
+    }
+}
+
 fn create_bayer_img(
     img_rgb_flat: image::FlatSamples<std::vec::Vec<u8>>,
     width: u32,
