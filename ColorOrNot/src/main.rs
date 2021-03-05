@@ -48,6 +48,10 @@ fn color_from_pixel_coord(x: u32, y: u32) -> BayerColor {
     }
 }
 
+/// Create a synthetic Bayer image from a given RGB image.
+///
+/// Only one color passes through the color filter on a CFA per pixel; to simulate this, we'll zero out the other
+/// components that wouldn't pass through the filter.
 fn create_bayer_img(
     img_rgb_flat: image::FlatSamples<std::vec::Vec<u8>>,
     width: u32,
@@ -78,6 +82,11 @@ fn create_bayer_img(
     img_bayer_flat
 }
 
+/// Create a nearest-neighbor color image from our BGGR bayer pattern
+///
+/// This function grabs the nearest color components from neighboring pixels. Since a Bayer pattern only has one
+/// component, it needs to "borrow" the other two from its nearest neighbors. Hence, the name of the function.
+/// See the blog post for a handy diagram.
 fn nearest_neighbor_demosaicing(
     img_bayer_flat: image::FlatSamples<std::vec::Vec<u8>>,
     width: u32,
