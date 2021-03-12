@@ -20,7 +20,7 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 
 *Exploring Ansible via Setting Up a WireGuard VPN*
 
-- Code [here](2021.03.04_AnsivleVpnSetup)
+- Code [here](2021.03.04_AnsibleVpnSetup)
 - 2021.03.04 post: [Exploring Ansible via Setting Up a WireGuard
   VPN](https://www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
 
