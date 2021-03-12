@@ -1,31 +1,29 @@
-# WireGuard VPN Setup with Ansible - Blog Post
+# WireGuard VPN Setup with Ansible
 
-Basic Ansible playbook for deploying a WireGuard VPN server and (local)
-client.
+## Purpose
 
-This is sample/reference code accompanying an explanatory blogpost:
+Basic Ansible playbook for deploying a WireGuard VPN server and (local) client.
 
-- Read on [Tangram Vision Blog](https://www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
+## Blog post
 
+- 2021.03.04: [Exploring Ansible via Setting Up a WireGuard
+  VPN)](https://www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
 
 ## Installation
 
-The only dependency needed (to run this on and against Ubuntu 20.04 machines)
-is Ansible:
+The only dependency needed (to run this on and against Ubuntu 20.04 machines) is
+Ansible:
 
 ```
 pip install ansible
 ```
 
-More detailed installation/setup instructions are in the blogpost linked
-above.
-
+More detailed installation/setup instructions are in the blogpost linked above.
 
 ## Usage
 
 Because this sample code isn't in the form of a role, it's not especially
 portable/shareable. To run it for yourself anyway:
-
 
 1. Generate your own WireGuard keys
 

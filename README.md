@@ -1,21 +1,36 @@
 # Tangram Visions Blog
 
-This repo holds code to generate the assets used in _Tangram Visions_, the company blog of @Tangram-Vision!
+This repo holds code to generate the assets used in the company blog for Tangram Vision! The main page of the blog can be [found here](https://www.tangramvision.com/blog).
 
-## The Blog
+See the README in each directory for instructions on installation, operation, and output.
 
-- [Found here](https://www.notion.so/tangramvision/1be613c9fd654f39a42782ea1986cdea?v=f2331bd9e64d4df0bb6ddd0a1d2d4ef4) in its native Notion format
-- [Found here](https://medium.com/tangram-visions) on Medium
-- [Found here](https://dev.to/tangramvision) on Dev
+## Table of Contents
 
-Find us wherever fine publications are syndicated.
+*One to Many Sensors*
 
-## Demo and Contribute
+- Code [here](2020.11.30_OneToManySensors)
+- 2020.11.30 post: [One To Many Sensors, Part I](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-1)
+- 2020.12.04 post: [One To Many Sensors, Part II](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-2)
 
-We take pride in our posts, but we realize that they aren't perfect. If you have an improvement or interesting modification in mind, write it up and submit a merge request! We might incorporate it here, and better yet, into the blog.
+*Coordinate Frames*
 
-- Examples in different programming languages
-- Improved rendering
-- Improved mathematics and numerical techniques
-- etc, etc, etc
+- Code [here](2021.01.21_CoordinateFrames)
+- 2021.01.21 post: [Coordinate systems, and how to relate multiple coordinate frames together, 
+Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-multiple-coordinate-frames-together-part-1)
 
+*Exploring Ansible via Setting Up a WireGuard VPN*
+
+- Code [here](2021.03.04_AnsivleVpnSetup)
+- 2021.03.04 post: [Exploring Ansible via Setting Up a WireGuard
+  VPN](https://www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
+
+*Color (Or Not)*
+
+- Code [here](2021.03.00_ColorOrNot)
+- 2021.03.?? post: [Color \(Or Not\)](https://www.tangramvision.com/blog/)
+
+## Contributing to this project
+
+This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
+out our [contributing guidelines](CONTRIBUTING.md). After that, make sure that you read through the READMEs for any of
+the modules you might be interested in contributing to.
