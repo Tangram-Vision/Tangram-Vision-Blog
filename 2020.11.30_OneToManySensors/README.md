@@ -1,8 +1,16 @@
 # One to Many Sensors
 
-## Output
+## Purpose
 
-This code was used to create the figures found in the series "One to Many Sensors", which dealt with Kalman filters.
+This code was used to create the figures found in the series "One to Many
+Sensors", which dealt with Kalman filters.
+
+## Blog post
+
+- 2020.11.30: [One To Many Sensors, Part
+  I](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-1)
+- 2020.12.04: [One To Many Sensors, Part
+  II](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-2)
 
 ## Installation
 
@@ -12,7 +20,7 @@ source ~/.venv/tangram/bin/activate
 pip install -r requirements.txt
 ```
 
-## Running the script
+## Usage
 
 To run the code in isolation, we use iPython:
 
@@ -21,7 +29,3 @@ ipython --matplotlib=qt
 In [1]: %run oneToManySensors.py
 ```
 
-## Blog post links
-
-- 2020.11.30: [One To Many Sensors, Part I](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-1)
-- 2020.12.04: [One To Many Sensors, Part II](https://www.tangramvision.com/blog/one-to-many-sensor-trouble-part-2)
