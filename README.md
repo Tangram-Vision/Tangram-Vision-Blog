@@ -28,8 +28,8 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 
 *Color (Or Not)*
 
-- Code [here](2021.03.00_ColorOrNot)
-- 2021.03.?? post: [Color \(Or Not\)](https://www.tangramvision.com/blog/)
+- Code [here](2021.04.12_ColorOrNot)
+- 2021.04.12 post: [Color \(Or Not\)](https://www.tangramvision.com/blog/)
 
 ## Contributing to this project
 
