@@ -8,9 +8,11 @@ reference.
 
 ## Blog post
 
-- 2021.01.21: [Coordinate systems, and how to relate multiple coordinate frames
-  together, Part
+- 2021.01.21: [Coordinate systems, and how to relate multiple coordinate frames together, Part
   I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-multiple-coordinate-frames-together-part-1)
+
+- 2021.04.08: [Coordinate systems, and how to relate multiple coordinate frames together, Part
+  II](https://www.tangramvision.com/blog/rotate-scale-translate-coordinate-frames-for-multi-sensor-systems-part-2)
 
 ## Installation
 
