@@ -1,4 +1,4 @@
-# Color (Or Not)
+# In Living Color (Or Not)
 
 ## Purpose
 
@@ -22,7 +22,7 @@ All images are saved to /tmp.
 
 ## Blog post
 
-- 2021.04.12: [Color \(Or Not\)](https://www.tangramvision.com/blog/)
+- 2021.04.12: [In Living Color \(Or Not\)](https://opencv.org/in-living-color-or-not/)
 
 ## Installation
 

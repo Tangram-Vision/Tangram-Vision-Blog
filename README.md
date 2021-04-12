@@ -26,10 +26,10 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - 2021.03.04 post: [Exploring Ansible via Setting Up a WireGuard
   VPN](https://www.tangramvision.com/blog/exploring-ansible-via-setting-up-a-wireguard-vpn)
 
-*Color (Or Not)*
+*In Living Color (Or Not)*: A guest blog for OpenCV
 
-- Code [here](2021.04.12_ColorOrNot)
-- 2021.04.12 post: [Color \(Or Not\)](https://www.tangramvision.com/blog/)
+- Code [here](2021.04.12_InLivingColorOrNot)
+- 2021.04.12 post: [In Living Color \(Or Not\)](https://opencv.org/in-living-color-or-not/)
 
 ## Contributing to this project
 
