@@ -15,8 +15,10 @@ See the README in each directory for instructions on installation, operation, an
 *Coordinate Frames*
 
 - Code [here](2021.01.21_CoordinateFrames)
-- 2021.01.21 post: [Coordinate systems, and how to relate multiple coordinate frames together, 
+- 2021.01.21 post: [Coordinate systems, and how to relate multiple coordinate frames together,
 Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-multiple-coordinate-frames-together-part-1)
+- 2021.04.08 post: [Coordinate systems, and how to relate multiple coordinate frames together, Part
+  II](https://www.tangramvision.com/blog/rotate-scale-translate-coordinate-frames-for-multi-sensor-systems-part-2)
 
 *Exploring Ansible via Setting Up a WireGuard VPN*
 
