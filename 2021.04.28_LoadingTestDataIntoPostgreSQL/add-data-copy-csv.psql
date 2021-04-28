@@ -1,0 +1,5 @@
+TRUNCATE albums, artists, genres, album_genres;
+\copy artists from 'artists.csv' csv header
+\copy albums from 'albums.csv' csv header
+\copy genres from 'genres.csv' csv header
+\copy album_genres from 'album_genres.csv' csv header
