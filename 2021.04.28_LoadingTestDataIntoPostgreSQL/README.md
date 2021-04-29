@@ -8,7 +8,6 @@ PostgreSQL database.
 ## Blog post
 
 - 2021.04.28: [Loading Test Data into PostgreSQL](https://www.tangramvision.com/blog/loading-test-data-into-postgresql)
-- Soon: [Creating PostgreSQL Test Data with SQL, PL/pgSQL and Python](https://www.tangramvision.com/blog/creating-postgresql-test-data-with-sql-pl-pgsql-and-python)
 
 ## Usage
 
@@ -23,7 +22,7 @@ Run a PostgreSQL database in a Docker container with:
 ```
 docker run --name=postgres --rm --env=POSTGRES_PASSWORD=foo \
     --volume=$(pwd)/schema.sql:/docker-entrypoint-initdb.d/schema.sql \
-    --volume=$(pwd):/repo
+    --volume=$(pwd):/repo \
     postgres:latest -c log_statement=all
 ```
 
@@ -43,10 +42,20 @@ docker exec --interactive --tty postgres \
     psql --host=localhost --username=postgres
 ```
 
+An example query for showing all data:
+
+```
+SELECT * FROM artists
+    LEFT OUTER JOIN albums USING (artist_id)
+    LEFT OUTER JOIN album_genres USING (album_id)
+    LEFT OUTER JOIN genres USING (genre_id);
+```
+
 If you edit `schema.sql`, you'll need to restart the postgres database
 container.  If you edit any of the CSV or SQL files, changes will be
 immediately reflected inside the container where this folder is mounted at
-`/repo`.  So, you can just run the `docker exec` command and your edits.
+`/repo`.  So, you can just run the `docker exec` command and your edits will
+take effect.
 
 NOTE: These scripts have been tested against PostgreSQL versions 12 and 13,
 but they likely work in other versions and in databases other than PostgreSQL
