@@ -14,7 +14,7 @@ SELECT substr(md5(random()::text), 1, 8) FROM generate_series(1, 5) AS _g;
 INSERT INTO artists (name)
 SELECT
   -- Pick one random word as the artist name.
-  (SELECT * FROM words ORDER BY random() LIMIT 1)
+  (SELECT * FROM words ORDER BY random()+_g*0 LIMIT 1)
 FROM generate_series(1, 4) AS _g;
 
 INSERT INTO albums (artist_id, title, released)

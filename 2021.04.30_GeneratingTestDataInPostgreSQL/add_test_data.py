@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 import datetime
-import random
+from random import randint, choice
 from typing import List, Any, Type, TypeVar
 
 from faker import Faker
@@ -10,6 +10,8 @@ T = TypeVar("T", bound="DataGeneratorBase")
 fake = Faker()
 
 
+# This is a useful base class for tracking instances so we can use them in
+# relationships (picking a random artist or genre to foreign key to).
 class DataGeneratorBase:
     def __new__(cls: Type[T], *args: Any, **kwargs: Any) -> T:
         "Track class instances in a list on the class"
@@ -35,17 +37,18 @@ class Artist(DataGeneratorBase):
 @dataclass
 class Album(DataGeneratorBase):
     album_id: int = field(init=False)
-    artist: Artist = field(default_factory=lambda: random.choice(Artist.instances))
+    artist: Artist = field(default_factory=lambda: choice(Artist.instances))
     title: str = field(
         default_factory=lambda: " ".join(
-            word.title() for word in fake.words(nb=random.randint(1, 3))
+            word.title() for word in fake.words(nb=randint(1, 3))
         )
     )
     released: datetime.date = field(default_factory=fake.date)
     genres: List[Genre] = field(
-        default_factory=lambda: [
-            random.choice(Genre.instances) for _ in range(random.randint(0, 3))
-        ]
+        # Use Faker to pick a list of genres to avoid duplicates
+        default_factory=lambda: fake.random_elements(
+            Genre.instances, length=randint(0, 3), unique=True
+        )
     )
 
 

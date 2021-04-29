@@ -3,7 +3,7 @@ TRUNCATE albums, artists, genres, album_genres;
 CREATE EXTENSION IF NOT EXISTS plpython3u;
 
 DO $$
-    from random import randint
+    from random import randint, choice
     from faker import Faker
 
     fake = Faker()
@@ -25,7 +25,7 @@ DO $$
             "INSERT INTO albums (artist_id, title, released) VALUES ($1, $2, $3)",
             ["int", "text", "date"],
         )
-        plan.execute([random.choice(artist_ids), title, fake.date()])
+        plan.execute([choice(artist_ids), title, fake.date()])
 
     album_ids = [row["album_id"] for row in plpy.execute("SELECT album_id FROM albums")]
     genre_ids = [row["genre_id"] for row in plpy.execute("SELECT genre_id FROM genres")]
@@ -34,5 +34,5 @@ DO $$
             "INSERT INTO album_genres (album_id, genre_id) VALUES ($1, $2) ON CONFLICT DO NOTHING",
             ["int", "int"],
         )
-        plan.execute([random.choice(album_ids), random.choice(genre_ids)])
+        plan.execute([choice(album_ids), choice(genre_ids)])
 $$ LANGUAGE plpython3u;
