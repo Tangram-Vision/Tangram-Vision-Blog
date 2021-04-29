@@ -28,7 +28,7 @@ Run the Docker image to start a PostgreSQL database:
 ```
 docker run --name=postgres --rm --env=POSTGRES_PASSWORD=foo \
     --volume=$(pwd)/schema.sql:/docker-entrypoint-initdb.d/schema.sql \
-    --volume=$(pwd):/repo
+    --volume=$(pwd):/repo \
     postgres-test-data-blogpost -c log_statement=all
 ```
 
@@ -46,6 +46,15 @@ To poke around the database interactively in psql:
 ```
 docker exec --interactive --tty postgres \
     psql --host=localhost --username=postgres
+```
+
+An example query for showing all data:
+
+```
+SELECT * FROM artists
+    LEFT OUTER JOIN albums USING (artist_id)
+    LEFT OUTER JOIN album_genres USING (album_id)
+    LEFT OUTER JOIN genres USING (genre_id);
 ```
 
 If you edit `schema.sql`, you'll need to restart the postgres database
