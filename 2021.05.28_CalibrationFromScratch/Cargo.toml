@@ -1,0 +1,12 @@
+[package]
+name = "calibration_example"
+version = "0.0.1"
+authors = ["Paul Jakob Schroeder <paul.schroeder@tangramvision.com>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+argmin = { version = "0.4.4", features = ["nalgebral"] }
+nalgebra = { version = "0.26.2", features = ["serde-serialize"] }
+rand = "0.8"
+serde = "1.0"
