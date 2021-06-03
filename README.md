@@ -41,6 +41,11 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2021.04.30_GeneratingTestDataInPostgreSQL)
 - 2021.04.30 post: [Creating PostgreSQL Test Data with SQL, PL/pgSQL, and Python](https://www.tangramvision.com/blog/creating-postgresql-test-data-with-sql-pl-pgsql-and-python)
 
+*Calibration from Scratch in Rust*
+
+- Code [here](2021.05.28_CalibrationFromScratch)
+- 2021.05.28: [Camera Calibration From Scratch](https://www.tangramvision.com/blog/calibration-from-scratch-using-rust-part-1-of-3)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
