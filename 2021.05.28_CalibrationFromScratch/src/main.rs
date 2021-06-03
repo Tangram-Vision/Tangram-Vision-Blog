@@ -1,6 +1,21 @@
+//! Provides a working camera calibration example.
+//! Instead of working with real pictures of checkerboards and
+//! extracting features from them, the example synthetically generates
+//! features from ground truth camera parameters, model coordinates and
+//! camera poses.
+//!
+//! Most of the code involves the set up of a camera calibration
+//! optimization problem. The parameters we're estimating are supplied
+//! with reasonable guesses and then the optimization is ran to convergence.
+//! The optimized results are printed along side their ground truth values
+//! for comparison.
+
 use argmin::prelude::*;
 use nalgebra as na;
 
+/// Produces a skew-symmetric or "cross-product matrix" from
+/// a 3-vector. This is needed for the `exp_map` and `log_map`
+/// functions
 fn skew_sym(v: na::Vector3<f64>) -> na::Matrix3<f64> {
     let mut ss = na::Matrix3::zeros();
     ss[(0, 1)] = -v[2];
@@ -12,6 +27,11 @@ fn skew_sym(v: na::Vector3<f64>) -> na::Matrix3<f64> {
     ss
 }
 
+/// Converts a 6-Vector Lie Algebra representation of a rigid body
+/// transform to an NAlgebra Isometry (quaternion+translation pair)
+///
+/// This is largely taken from this paper:
+/// https://ingmec.ual.es/~jlblanco/papers/jlblanco2010geometry3D_techrep.pdf
 fn exp_map(param_vector: &na::Vector6<f64>) -> na::Isometry3<f64> {
     let t = param_vector.fixed_slice::<3, 1>(0, 0);
     let omega = param_vector.fixed_slice::<3, 1>(3, 0);
@@ -41,6 +61,11 @@ fn exp_map(param_vector: &na::Vector6<f64>) -> na::Isometry3<f64> {
     na::Isometry3::from_parts(trans, quat)
 }
 
+/// Converts an NAlgebra Isometry to a 6-Vector Lie Algebra representation
+/// of a rigid body transform.
+///
+/// This is largely taken from this paper:
+/// https://ingmec.ual.es/~jlblanco/papers/jlblanco2010geometry3D_techrep.pdf
 fn log_map(input: &na::Isometry3<f64>) -> na::Vector6<f64> {
     let t: na::Vector3<f64> = input.translation.vector;
 
@@ -65,6 +90,19 @@ fn log_map(input: &na::Isometry3<f64>) -> na::Vector6<f64> {
     ret
 }
 
+/// Produces the Jacobian of the exponential map of a lie algebra transform
+/// that is then applied to a point with respect to the transform.
+///
+/// i.e.
+/// d exp(t) * p
+/// ------------
+///      d t
+///
+/// The parameter 'transformed_point' is assumed to be transformed already
+/// and thus: transformed_point = exp(t) * p
+///
+/// This is largely taken from this paper:
+/// https://ingmec.ual.es/~jlblanco/papers/jlblanco2010geometry3D_techrep.pdf
 fn exp_map_jacobian(transformed_point: &na::Point3<f64>) -> na::Matrix3x6<f64> {
     let mut ss = na::Matrix3x6::zeros();
     ss.fixed_slice_mut::<3, 3>(0, 0)
@@ -74,6 +112,8 @@ fn exp_map_jacobian(transformed_point: &na::Point3<f64>) -> na::Matrix3x6<f64> {
     ss
 }
 
+/// Projects a point in camera coordinates into the image plane
+/// producing a floating-point pixel value
 fn project(
     params: &na::Vector4<f64>, /*fx, fy, cx, cy*/
     pt: &na::Point3<f64>,
@@ -84,6 +124,9 @@ fn project(
     )
 }
 
+/// Jacobian of the projection function with respect to the four camera
+/// paramaters (fx, fy, cx, cy). The 'transformed_pt' is a point already in
+/// or transformed to camera coordinates.
 fn proj_jacobian_wrt_params(transformed_pt: &na::Point3<f64>) -> na::Matrix2x4<f64> {
     na::Matrix2x4::<f64>::new(
         transformed_pt.x / transformed_pt.z,
@@ -97,6 +140,9 @@ fn proj_jacobian_wrt_params(transformed_pt: &na::Point3<f64>) -> na::Matrix2x4<f
     )
 }
 
+/// Jacobian of the projection function with respect to the 3D point in camera
+/// coordinates. The 'transformed_pt' is a point already in
+/// or transformed to camera coordinates.
 fn proj_jacobian_wrt_point(
     camera_model: &na::Vector4<f64>, /*fx, fy, cx, cy*/
     transformed_pt: &na::Point3<f64>,
@@ -111,6 +157,10 @@ fn proj_jacobian_wrt_point(
     )
 }
 
+/// Struct for holding data for calibration.
+///
+/// This struct implements the ArgminOp trait which allows it
+/// to provide Jacobian and residual functions for the optimization.
 struct Calibration<'a> {
     model_pts: &'a Vec<na::Point3<f64>>,
     image_pts_set: &'a Vec<Vec<na::Point2<f64>>>,
@@ -118,6 +168,10 @@ struct Calibration<'a> {
 
 impl<'a> Calibration<'a> {
     /// Decode the camera model and transforms from the flattened parameter vector
+    ///
+    /// The convention in use is that the first four values are the camera parameters
+    /// and each set of six values after is a transform (one per image). This convention
+    /// is also followed in the Jacobian function below.
     fn decode_params(
         &self,
         param: &na::DVector<f64>,
@@ -154,14 +208,19 @@ impl ArgminOp for Calibration<'_> {
     /// Floating point precision
     type Float = f64;
 
-    /// Calculate the residual vector
+    /// Calculate the residual vector from the parameter vector
+    ///
+    /// param 'p' is the current estimate of the parameters-being-optimized
+    /// at the current iteration
     fn apply(&self, p: &Self::Param) -> Result<Self::Output, Error> {
+        // Get usable camera model and transforms from the parameter vector
         let (camera_model, transforms) = self.decode_params(p);
 
         let num_images = self.image_pts_set.len();
         let num_target_points = self.model_pts.len();
         let num_residuals = num_images * num_target_points;
 
+        // Allocate big empty residual
         let mut residual = na::DVector::<f64>::zeros(num_residuals * 2);
 
         let mut residual_idx = 0;
@@ -183,33 +242,47 @@ impl ArgminOp for Calibration<'_> {
         Ok(residual)
     }
 
-    /// Calculate the jacobian
+    /// Calculate the Jacobian from the parameter vector
+    ///
+    /// param 'p' is the current estimate of the parameters-being-optimized
+    /// at the current iteration
     fn jacobian(&self, p: &Self::Param) -> Result<Self::Jacobian, Error> {
+        // Get usable camera model and transforms from the parameter vector
         let (camera_model, transforms) = self.decode_params(p);
+
         let num_images = self.image_pts_set.len();
         let num_target_points = self.model_pts.len();
         let num_residuals = num_images * num_target_points;
         let num_unknowns = 6 * num_images + 4;
 
+        // Allocate big empty Jacobian
         let mut jacobian = na::DMatrix::<f64>::zeros(num_residuals * 2, num_unknowns);
 
         let mut residual_idx = 0;
-        for ((i, _), transform) in self.image_pts_set.iter().enumerate().zip(transforms.iter()) {
+        for (tform_idx, transform) in transforms.iter().enumerate() {
             for target_pt in self.model_pts.iter() {
                 // Apply image formation model
                 let transformed_point = transform * target_pt;
 
-                // Populate jacobian matrix two rows at time
-                jacobian
-                    .fixed_slice_mut::<2, 4>(residual_idx, 0)
-                    .copy_from(&proj_jacobian_wrt_params(&transformed_point)); // params jacobian
+                // Populate Jacobian matrix two rows at time
 
+                // Populate Jacobian part for the camera parameters
+                jacobian
+                    .fixed_slice_mut::<2, 4>(
+                        residual_idx,
+                        0, /*first four columns are camera parameters*/
+                    )
+                    .copy_from(&proj_jacobian_wrt_params(&transformed_point));
+
+                // Populate the Jacobian part for the transform
                 let proj_jacobian_wrt_point =
                     proj_jacobian_wrt_point(&camera_model, &transformed_point);
                 let transform_jacobian_wrt_transform = exp_map_jacobian(&transformed_point);
+
+                // Transforms come after camera parameters in sets of six columns
                 jacobian
-                    .fixed_slice_mut::<2, 6>(residual_idx, 4 + i * 6)
-                    .copy_from(&(proj_jacobian_wrt_point * transform_jacobian_wrt_transform)); // transform jacobian
+                    .fixed_slice_mut::<2, 6>(residual_idx, 4 + tform_idx * 6)
+                    .copy_from(&(proj_jacobian_wrt_point * transform_jacobian_wrt_transform));
 
                 residual_idx += 2;
             }
@@ -227,8 +300,10 @@ fn main() {
         }
     }
 
+    // Ground truth camera model
     let camera_model = na::Vector4::<f64>::new(540.0, 540.0, 320.0, 240.0); // fx, fy, cx, cy
 
+    // Ground truth camera-from-model transforms for three "images"
     let transforms = vec![
         na::Isometry3::<f64>::new(
             na::Vector3::<f64>::new(-0.1, 0.1, 2.0),
@@ -244,11 +319,14 @@ fn main() {
         ),
     ];
 
+    // Model coordinates are mapped into camera coordinates in three sets
+    // for three "images"
     let transformed_pts = transforms
         .iter()
         .map(|t| source_pts.iter().map(|p| t * p).collect::<Vec<_>>())
         .collect::<Vec<_>>();
 
+    // Projection function is applied producing three sets of pixel values
     let imaged_pts = transformed_pts
         .iter()
         .map(|t_list| {
@@ -259,11 +337,13 @@ fn main() {
         })
         .collect::<Vec<_>>();
 
+    // Create calibration parameters
     let cal_cost = Calibration {
         model_pts: &source_pts,
         image_pts_set: &imaged_pts,
     };
 
+    // Populate a parameter vector with initial guess
     let mut init_param = na::DVector::<f64>::zeros(4 + imaged_pts.len() * 6);
 
     // Arbitrary guess for camera model
@@ -274,26 +354,27 @@ fn main() {
 
     // Arbitrary guess for poses (3m in front of the camera with no rotation)
     // We have to convert this to a 6D lie algebra element to populate the parameter
-    // vector
-    let init_pose = log_map(&na::Isometry3::translation(0.0, 0.0, 3.0));
+    // vector.
+    let init_pose_lie = log_map(&na::Isometry3::translation(0.0, 0.0, 3.0));
 
-    // Populate poses with guess
+    // Populate poses with guesses. This follows the same convention used in
+    // `decode_params`
     init_param
         .fixed_slice_mut::<6, 1>(4, 0)
-        .copy_from(&init_pose);
+        .copy_from(&init_pose_lie);
     init_param
         .fixed_slice_mut::<6, 1>(4 + 6, 0)
-        .copy_from(&init_pose);
+        .copy_from(&init_pose_lie);
     init_param
         .fixed_slice_mut::<6, 1>(4 + 6 * 2, 0)
-        .copy_from(&init_pose);
+        .copy_from(&init_pose_lie);
 
-    eprintln!("init: {:.02}", init_param);
-
-    // Solve
+    // Solve with Gauss Newton
     let solver = argmin::solver::gaussnewton::GaussNewton::new()
-        .with_gamma(1e-1)
+        .with_gamma(1e-1) /* smaller step size to ensure convergence */
         .unwrap();
+
+    // Run with up to 2000 iterations, printing progress to terminal
     let res = Executor::new(cal_cost, solver, init_param)
         .add_observer(ArgminSlogLogger::term(), ObserverMode::Always)
         .max_iters(2000)
