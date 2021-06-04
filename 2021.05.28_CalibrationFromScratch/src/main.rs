@@ -76,11 +76,11 @@ fn log_map(input: &na::Isometry3<f64>) -> na::Vector6<f64> {
 
     let mut v_inv = na::Matrix3::<f64>::identity();
     if theta > 1e-6 {
+        omega = quat.vector() * theta / (half_theta.sin());
         let ssym_omega = skew_sym(omega);
         v_inv -= ssym_omega * 0.5;
         v_inv += ssym_omega * ssym_omega * (1.0 - half_theta * half_theta.cos() / half_theta.sin())
             / (theta * theta);
-        omega = quat.vector() * theta / (half_theta.sin());
     }
 
     let mut ret = na::Vector6::<f64>::zeros();
