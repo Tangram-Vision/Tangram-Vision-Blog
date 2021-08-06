@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import brewer2mpl as b2m
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -159,8 +160,159 @@ def compound_distortion():
     plot.show()
 
 
+def radial_effect():
+    fig = plt.figure(figsize=(9, 9))
+    ax = fig.add_subplot()
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    ax.spines["left"].set_linewidth(4)
+    ax.spines["bottom"].set_linewidth(4)
+
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+    ax.set_xlim([0, 8])
+    ax.set_ylim([0, 8])
+
+    ax.set_xlabel("x", fontsize=20)
+    ax.set_ylabel("y", fontsize=20)
+    ax.set_title("Geometric effect of radial distortion on a point", pad=25, fontsize=25)
+
+    ax.plot(0, 8, "k^", ms=16, clip_on=False)
+    ax.plot(8, 0, "k>", ms=16, clip_on=False)
+
+    ax.plot(5, 5, "ko")
+    ax.plot([0, 5], [0, 5], "k-", linewidth=2)
+
+    ax.plot(7, 7, "ko")
+    ax.plot([5, 7], [5, 7], "--", color=colormap[0], linewidth=2)
+
+    ax.plot([5, 7], [5, 5], "k-", color=colormap[1], linewidth=2)
+    ax.plot([7, 7], [5, 7], "-", color=colormap[2], linewidth=2)
+
+    ax.text(2.5, 3.5, "r", fontsize=20)
+    ax.text(5.5, 6.5, r"$\delta r$", color=colormap[0], fontsize=20)
+    ax.text(6.0, 4.5, r"$\delta x_{r}$", color=colormap[1], fontsize=20)
+    ax.text(7.25, 6.0, r"$\delta y_{r}$", color=colormap[2], fontsize=20)
+
+    arc = mpatches.Arc([0, 0], 3.5, 3.5, theta2=45, ls=(0, (5, 5)), alpha=0.6, linewidth=2)
+    ax.text(2.0, 0.75, r"$\psi$", fontsize=20, alpha=0.6)
+    ax.add_patch(arc)
+
+    fig.show()
+
+
+def gaussian_vs_balanced():
+    fig = plt.figure(figsize=(22, 9))
+    # Gaussian subplot
+    ax_g = fig.add_subplot(121)
+    # Balanced subplot
+    ax_b = fig.add_subplot(122)
+
+    # Set up Gaussian profile
+    ax_g.spines["top"].set_visible(False)
+    ax_g.spines["right"].set_visible(False)
+
+    ax_g.spines["left"].set_linewidth(4)
+    ax_g.spines["bottom"].set_linewidth(4)
+
+    ax_g.set_xlabel(r"r [pixels]", fontsize=20)
+    ax_g.set_ylabel(r"$\delta r_{Gaussian} [pixels]$", fontsize=20)
+    ax_g.set_title(r"Gaussian distortion profile", fontsize=25)
+
+    # This data was from a camera with a 14mm sensor, 40um pixel pitch
+    pixel_pitch = 0.04
+    max_radius = 7 / 2
+    (k1, k2, k3) = (-7.6822e-03, -4.3747e-04, 0.0)
+
+    r = np.linspace(0, max_radius, 1000)
+
+    dr_g = k1 * r ** 3 + k2 * r ** 5 + k3 * r ** 7
+
+    ax_g.plot([0, 4 / pixel_pitch], [0, 0], "k--", linewidth=1)
+    ax_g.plot(r / pixel_pitch, dr_g / pixel_pitch, color=colormap[0], linewidth=3)
+    ax_g.set_xlim([0, (max_radius + 1) / pixel_pitch])
+
+    # Set up Balanced profile
+    ax_b.spines["top"].set_visible(False)
+    ax_b.spines["right"].set_visible(False)
+
+    ax_b.spines["left"].set_linewidth(4)
+    ax_b.spines["bottom"].set_linewidth(4)
+
+    ax_b.set_xlabel(r"r [pixels]", fontsize=20)
+    ax_b.set_ylabel(r"$\delta r_{Balanced} [pixels]$", fontsize=20)
+    ax_b.set_title("Balanced distortion profile", fontsize=25)
+
+    delta_c_over_c = 1.0
+    dr_b = delta_c_over_c * r + ((1 + delta_c_over_c) * dr_g)
+
+    ax_b.plot([0, 4 / pixel_pitch], [0, 0], "k--", linewidth=1)
+    ax_b.plot(r / pixel_pitch, dr_b / pixel_pitch, color=colormap[1], linewidth=3)
+    ax_b.set_xlim([0, (max_radius + 1) / pixel_pitch])
+
+    (k1b, k2b, k3b) = (1 + delta_c_over_c) * np.array((k1, k2, k3))
+
+    print(k1, k2, k3)
+    print(k1b, k2b, k3b)
+
+    fig.show()
+
+
+def similar_triangle():
+    fig = plt.figure(figsize=(9, 9))
+    ax = fig.add_subplot()
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    ax.spines["left"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+    ax.axis("equal")
+    ax.set_title("Re-balancing correction for radial distortion", fontsize=25)
+
+    ax.plot([0, 0], [0, 5], "k-", linewidth=3)
+    ax.plot([0, 4], [0, 0], "k-", linewidth=3)
+    ax.plot([0, 4], [5, 0], "k-", linewidth=3)
+    ax.plot([0, 3], [5, 0], "k-", linewidth=3)
+    ax.plot([3, 3], [0, 1.25], "k-", linewidth=3)
+    ax.plot([0, 3], [1.25, 1.25], "k-", linewidth=3)
+
+    ax.plot([0.0, 3.0], [-0.5, -0.5], "k-", linewidth=2)
+    ax.plot(0.0, -0.5, "k<", linewidth=2)
+    ax.plot(2.98, -0.5, "k>", linewidth=2)
+    ax.text(1.5, -0.75, r"$r$", fontsize=20)
+
+    ax.plot([3.0, 4.0], [-0.5, -0.5], "k-", linewidth=2)
+    ax.plot(3.02, -0.5, "k<", linewidth=2)
+    ax.plot(4.0, -0.5, "k>", linewidth=2)
+    ax.text(3.35, -0.75, r"$\delta r$", fontsize=20)
+
+    ax.plot([-0.5, -0.5], [0.05, 1.20], "k-", linewidth=2)
+    ax.plot(-0.5, 0.05, "kv", linewidth=2)
+    ax.plot(-0.5, 1.20, "k^", linewidth=2)
+    ax.text(-0.4, 0.5, r"$\Delta f$", fontsize=20)
+
+    ax.plot([-1.0, -1.0], [0.05, 4.95], "k-", linewidth=2)
+    ax.plot(-1.0, 0.05, "kv", linewidth=2)
+    ax.plot(-1.0, 4.95, "k^", linewidth=2)
+    ax.text(-0.9, 2.5, r"$f$", fontsize=20)
+
+    fig.show()
+
+
 if __name__ == "__main__":
     no_distortion()
     barrel_radial_distortion()
     pincushion_radial_distortion()
     tangential_distortion()
+    compound_distortion()
+    radial_effect()
+    gaussian_vs_balanced()
+    similar_triangle()
