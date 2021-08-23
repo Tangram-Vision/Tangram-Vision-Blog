@@ -158,15 +158,9 @@ class WorldFramePlotter:
         )
 
     def add_grid_lines_for_point(self, x, y):
-        self.ax.plot(
-            [x, 0, 0], [y, y, y], [z, z, z], "--", lw=1.0, color="black", alpha=0.3
-        )
-        self.ax.plot(
-            [x, x, x], [0, y, 0], [z, z, z], "--", lw=1.0, color="black", alpha=0.3
-        )
-        self.ax.plot(
-            [x, x, x], [y, y, y], [0, 0, z], "--", lw=1.0, color="black", alpha=0.3
-        )
+        self.ax.plot([x, 0, 0], [y, y, y], [z, z, z], "--", lw=1.0, color="black", alpha=0.3)
+        self.ax.plot([x, x, x], [0, y, 0], [z, z, z], "--", lw=1.0, color="black", alpha=0.3)
+        self.ax.plot([x, x, x], [y, y, y], [0, 0, z], "--", lw=1.0, color="black", alpha=0.3)
 
     def add_coordinate_frame(
         self, label, rotations, translation, scales, colors, label_origin=True
@@ -289,9 +283,7 @@ class WorldFramePlotter:
         self.fig.show()
 
 
-def transform_as_separate_operations(
-    sx, sy, sz, omega, phi, kappa, tx, ty, tz, x_A, y_A, z_A
-):
+def transform_as_separate_operations(sx, sy, sz, omega, phi, kappa, tx, ty, tz, x_A, y_A, z_A):
     """
     Transforms a point (x, y) by the translation (tx, ty), rotation (theta) and scale (sx, sy)
     factors, by formulating the transformation according to:

@@ -44,7 +44,15 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 *Calibration from Scratch in Rust*
 
 - Code [here](2021.05.28_CalibrationFromScratch)
-- 2021.05.28: [Camera Calibration From Scratch](https://www.tangramvision.com/blog/calibration-from-scratch-using-rust-part-1-of-3)
+- 2021.05.28 post: [Camera Calibration From Scratch](https://www.tangramvision.com/blog/calibration-from-scratch-using-rust-part-1-of-3)
+
+*Camera Modeling: Exploring Distortion and Distortion Models*
+
+- Code [here](2021.08.03_LensDistortions)
+- 2021.08.06 post: [Camera Modeling: Exploring Distortion and Distortion Models, Part
+  I](https://www.tangramvision.com/blog/camera-modeling-exploring-distortion-and-distortion-models-part-i)
+- 2021.08.09 post: [Camera Modeling: Exploring Distortion and Distortion Models, Part
+  II](https://www.tangramvision.com/blog/camera-modeling-exploring-distortion-and-distortion-models-part-ii)
 
 ## Contributing to this project
 

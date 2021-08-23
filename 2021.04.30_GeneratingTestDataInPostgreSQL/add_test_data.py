@@ -39,9 +39,7 @@ class Album(DataGeneratorBase):
     album_id: int = field(init=False)
     artist: Artist = field(default_factory=lambda: choice(Artist.instances))
     title: str = field(
-        default_factory=lambda: " ".join(
-            word.title() for word in fake.words(nb=randint(1, 3))
-        )
+        default_factory=lambda: " ".join(word.title() for word in fake.words(nb=randint(1, 3)))
     )
     released: datetime.date = field(default_factory=fake.date)
     genres: List[Genre] = field(
@@ -58,15 +56,11 @@ def main(plpy: Any) -> None:
         # "RETURNING id" lets us get the database-generated and store it on the
         # Python object for later reference without needing to issue additional
         # queries.
-        plan = plpy.prepare(
-            "INSERT INTO genres (name) VALUES ($1) RETURNING genre_id", ["text"]
-        )
+        plan = plpy.prepare("INSERT INTO genres (name) VALUES ($1) RETURNING genre_id", ["text"])
         g.genre_id = plan.execute([g.name])[0]["genre_id"]
     for _ in range(6):
         artist = Artist()
-        plan = plpy.prepare(
-            "INSERT INTO artists (name) VALUES ($1) RETURNING artist_id", ["text"]
-        )
+        plan = plpy.prepare("INSERT INTO artists (name) VALUES ($1) RETURNING artist_id", ["text"])
         artist.artist_id = plan.execute([artist.name])[0]["artist_id"]
     for _ in range(8):
         album = Album()
@@ -74,9 +68,9 @@ def main(plpy: Any) -> None:
             "INSERT INTO albums (artist_id, title, released) VALUES ($1, $2, $3) RETURNING album_id",
             ["int", "text", "date"],
         )
-        album.album_id = plan.execute(
-            [album.artist.artist_id, album.title, album.released]
-        )[0]["album_id"]
+        album.album_id = plan.execute([album.artist.artist_id, album.title, album.released])[0][
+            "album_id"
+        ]
 
         # Insert album_genres rows
         for g in album.genres:
