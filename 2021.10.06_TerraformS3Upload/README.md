@@ -7,7 +7,7 @@ Demonstrate how to use Terraform to create and manage content and its metadata
 
 ## Blog post
 
-- 2021.XX.XX: [Abusing Terraform to Upload Static Websites to S3](https://www.tangramvision.com/blog/abusing-terraform-to-upload-static-websites-to-s3)
+- 2021.10.06: [Abusing Terraform to Upload Static Websites to S3](https://www.tangramvision.com/blog/abusing-terraform-to-upload-static-websites-to-s3)
 
 ## Usage
 
