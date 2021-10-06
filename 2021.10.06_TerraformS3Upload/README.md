@@ -28,3 +28,10 @@ terraform plan
 # Make the changes (create and populate the S3 bucket)
 terraform apply
 ```
+
+
+## Credit
+
+Credit to https://engineering.statefarm.com/blog/terraform-s3-upload-with-mime/
+for the content of `mime.json` (source from
+https://github.com/d-henn/s3-upload-terraform-example/blob/master/data/mime.json)
