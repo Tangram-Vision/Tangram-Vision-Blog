@@ -54,6 +54,11 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - 2021.08.09 post: [Camera Modeling: Exploring Distortion and Distortion Models, Part
   II](https://www.tangramvision.com/blog/camera-modeling-exploring-distortion-and-distortion-models-part-ii)
 
+*Abusing Terraform to Upload Static Websites to S3*
+
+- Code [here](2021.10.06_TerraformS3Upload)
+- 2021.10.06 post: [Abusing Terraform to Upload Static Websites to S3](https://www.tangramvision.com/blog/abusing-terraform-to-upload-static-websites-to-s3)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
