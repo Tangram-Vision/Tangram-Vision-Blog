@@ -8,7 +8,7 @@ aren't usually considered.
 
 ## Blog post
 
-- 2021.09.30: [Calibration Statistics: Accuracy and Precision](TODO HERE)
+- 2021.09.30: [Calibration Statistics: Accuracy and Precision](https://www.tangramvision.com/blog/calibration-statistics-accuracy-vs-precision)
 
 ## Installation
 

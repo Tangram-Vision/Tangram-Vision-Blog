@@ -54,6 +54,12 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - 2021.08.09 post: [Camera Modeling: Exploring Distortion and Distortion Models, Part
   II](https://www.tangramvision.com/blog/camera-modeling-exploring-distortion-and-distortion-models-part-ii)
 
+*Calibration Statistics: Accuracy and Precision*
+
+- Code [here](2021.09.30_CalibrationStatisticsAccuracyAndPrecision)
+- 2021.09.30 post: [Calibration Statistics: Accuracy Vs Precision](https://www.tangramvision.com/blog/calibration-statistics-accuracy-vs-precision)
+>>>>>>> Populate links to now-published blog post
+
 *Abusing Terraform to Upload Static Websites to S3*
 
 - Code [here](2021.10.06_TerraformS3Upload)
