@@ -58,12 +58,16 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 
 - Code [here](2021.09.30_CalibrationStatisticsAccuracyVsPrecision)
 - 2021.09.30 post: [Calibration Statistics: Accuracy Vs Precision](https://www.tangramvision.com/blog/calibration-statistics-accuracy-vs-precision)
->>>>>>> Populate links to now-published blog post
 
 *Abusing Terraform to Upload Static Websites to S3*
 
 - Code [here](2021.10.06_TerraformS3Upload)
 - 2021.10.06 post: [Abusing Terraform to Upload Static Websites to S3](https://www.tangramvision.com/blog/abusing-terraform-to-upload-static-websites-to-s3)
+
+*Hands-on with PostgreSQL Authorization (Part 1): Roles and Grants*
+
+- Code [here](2021.12.13_PostgreSQLAuthorizationRolesAndGrants)
+- 2021.12.13 post: [Hands-on with PostgreSQL Authorization (Part 1): Roles and Grants](https://www.tangramvision.com/blog/hands-on-with-postgresql-authorization-part-1-roles-and-grants)
 
 ## Contributing to this project
 
