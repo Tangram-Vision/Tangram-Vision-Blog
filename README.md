@@ -69,6 +69,11 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2021.12.13_PostgreSQLAuthorizationRolesAndGrants)
 - 2021.12.13 post: [Hands-on with PostgreSQL Authorization (Part 1): Roles and Grants](https://www.tangramvision.com/blog/hands-on-with-postgresql-authorization-part-1-roles-and-grants)
 
+*Deriving Derivatives in Perception*
+
+- Code [here](2022.03.07_DerivingDerivativesInPerception)
+- 2022.03.07: [Deriving Derivatives in Perception](https://www.tangramvision.com/blog/deriving-derivatives-for-perception)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
