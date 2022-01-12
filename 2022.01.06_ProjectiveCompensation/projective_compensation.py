@@ -108,13 +108,7 @@ def problem_with_extra_observations():
     fig.show()
 
 
-def least_squares_solutions_to_problem_1():
-    d = np.array([1.12, 1.86])
-
-    q_initial = (6, 0)
-
-    ps = np.array([(5, 0), (8, 0)])
-
+def least_squares_solution_to_problem(d, ps, q_initial):
     j = ((ps[:, 0] - q_initial[0]) / np.linalg.norm(ps - q_initial, axis=1)).reshape((-1, 1))
     g = np.linalg.norm(ps - q_initial, axis=1) - d
 
@@ -123,52 +117,9 @@ def least_squares_solutions_to_problem_1():
 
     delta = np.linalg.solve(-N, U)
     x = q_initial[0] - delta
-    print(f"x: {x}")
-
     r = j @ delta + g
-    print(f"r: {r}")
 
-
-def least_squares_solutions_to_problem_2():
-    d = np.array([1.12, 1.86])
-
-    q_initial = (6, 0)
-
-    ps = np.array([(5, 0), (8, 0.8)])
-
-    j = ((ps[:, 0] - q_initial[0]) / np.linalg.norm(ps - q_initial, axis=1)).reshape((-1, 1))
-    g = np.linalg.norm(ps - q_initial, axis=1) - d
-
-    N = j.T @ j
-    U = j.T @ g
-
-    delta = np.linalg.solve(-N, U)
-    x = q_initial[0] - delta
-    print(f"x: {x}")
-
-    r = j @ delta + g
-    print(f"r: {r}")
-
-
-def least_squares_solutions_to_problem_3():
-    d = np.array([1.12, 1.86, 1.36, 1.02])
-
-    q_initial = (6, 0)
-
-    ps = np.array([(5, 0), (8, 0.6), (5.5, 1.2), (6.13, -1)])
-
-    j = ((ps[:, 0] - q_initial[0]) / np.linalg.norm(ps - q_initial, axis=1)).reshape((-1, 1))
-    g = np.linalg.norm(ps - q_initial, axis=1) - d
-
-    N = j.T @ j
-    U = j.T @ g
-
-    delta = np.linalg.solve(-N, U)
-    x = q_initial[0] - delta
-    print(f"x: {x}")
-
-    r = j @ delta + g
-    print(f"r: {r}")
+    return (x, r)
 
 
 if __name__ == "__main__":
@@ -176,9 +127,35 @@ if __name__ == "__main__":
     problem_with_error()
     problem_with_extra_observations()
 
-    least_squares_solutions_to_problem_1()
+    ## Problem 1:
+    d = np.array([1.12, 1.86])
+    ps = np.array([(5, 0), (8, 0)])
+    q_initial = (6, 0)
+
+    (x, r) = least_squares_solution_to_problem(d, ps, q_initial)
+
+    print(f"x: {x}")
+    print(f"r: {r}")
     print()
-    least_squares_solutions_to_problem_2()
+
+    ## Problem 2 -- Problem 1 but with error in second point
+    d = np.array([1.12, 1.86])
+    ps = np.array([(5, 0), (8, 0.6)])
+    q_initial = (6, 0)
+
+    (x, r) = least_squares_solution_to_problem(d, ps, q_initial)
+
+    print(f"x: {x}")
+    print(f"r: {r}")
     print()
-    least_squares_solutions_to_problem_3()
+
+    ## Problem 3 -- Problem 2 but we add two more points & observations
+    d = np.array([1.12, 1.86, 1.36, 1.02])
+    ps = np.array([(5, 0), (8, 0.6), (5.5, 1.2), (6.13, -1)])
+    q_initial = (6, 0)
+
+    (x, r) = least_squares_solution_to_problem(d, ps, q_initial)
+
+    print(f"x: {x}")
+    print(f"r: {r}")
     print()
