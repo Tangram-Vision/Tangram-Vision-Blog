@@ -81,6 +81,11 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2022.04.05_ProjectiveCompensation)
 - 2022.04.05 post: [Projective Compensation in Calibration](https://www.tangramvision.com/blog/projective-compensation-in-calibration)
 
+*Wrapping Your Head Around Numerical Precision*
+
+- Code [here](2022.04.14_WrappingYourHeadAroundNumericalPrecision)
+- 2022.04.14: [Wrapping Your Head Around Numerical Precision](https://www.tangramvision.com/blog/wrapping-your-head-around-numerical-precision)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
