@@ -1,0 +1,29 @@
+-- For more, see https://www.postgresql.org/docs/current/app-psql.html
+
+-- Save lots of history!
+\set HISTSIZE 100000
+
+-- Note that you have to exit psql (`\q`) for the history to be saved. If you
+-- kill the docker container, the history file won't be updated.
+\set HISTFILE /repo/.psql_history
+
+-- Show hostname in psql command prompt
+\set PROMPT1 '%n@%m/%/%R%# '
+\set PROMPT2 '%n@%m/%/%R%# '
+
+\set VERBOSITY verbose
+
+-- Show timing info on all queries
+-- \timing on
+
+-- Show columns as rows if there are lots
+\x auto
+
+-- Show null values as '¤'
+-- https://www.citusdata.com/blog/2017/07/16/customizing-my-postgres-shell-using-psqlrc/
+\pset null '¤'
+
+-- Quick way to see current_user and session_user (do :w in the psql prompt)
+-- https://stackoverflow.com/a/50229617
+\set whoami 'SELECT current_user, session_user;'
+\set w 'SELECT current_user, session_user;'

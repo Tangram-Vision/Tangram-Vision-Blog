@@ -64,10 +64,12 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2021.10.06_TerraformS3Upload)
 - 2021.10.06 post: [Abusing Terraform to Upload Static Websites to S3](https://www.tangramvision.com/blog/abusing-terraform-to-upload-static-websites-to-s3)
 
-*Hands-on with PostgreSQL Authorization (Part 1): Roles and Grants*
+*Hands-on with PostgreSQL Authorization*
 
-- Code [here](2021.12.13_PostgreSQLAuthorizationRolesAndGrants)
 - 2021.12.13 post: [Hands-on with PostgreSQL Authorization (Part 1): Roles and Grants](https://www.tangramvision.com/blog/hands-on-with-postgresql-authorization-part-1-roles-and-grants)
+  - Code [here](2021.12.13_PostgreSQLAuthorizationRolesAndGrants)
+- 2022.03.16 post: [Hands-on with PostgreSQL Authorization (Part 2): Row-Level Security](https://www.tangramvision.com/blog/hands-on-with-postgresql-authorization-part-2-row-level-security)
+  - Code [here](2022.03.16_PostgreSQLAuthorizationRowLevelSecurity)
 
 *Deriving Derivatives in Perception*
 
