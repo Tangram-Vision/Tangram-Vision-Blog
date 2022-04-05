@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This code was used to create the figures found in the post "Projective
-Compensation", which dealt with methods to transition between spatial frames of
-reference.
+This code was used to create the figures found in the post "Projective Compensation", which deals
+with describing how changes in one parameter can affect errors in another parameter in an
+optimization.
 
 ## Blog post
 
