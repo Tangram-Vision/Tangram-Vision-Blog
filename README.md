@@ -76,6 +76,11 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2022.03.07_DerivingDerivativesInPerception)
 - 2022.03.07: [Deriving Derivatives in Perception](https://www.tangramvision.com/blog/deriving-derivatives-for-perception)
 
+*Projective Compensation in Calibration*
+
+- Code [here](2022.04.05_ProjectiveCompensation)
+- 2022.04.05 post: [Projective Compensation in Calibration](https://www.tangramvision.com/blog/projective-compensation-in-calibration)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check

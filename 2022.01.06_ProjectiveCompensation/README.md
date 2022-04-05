@@ -8,7 +8,7 @@ reference.
 
 ## Blog post
 
-- 2022.xx.yy: [title pending](url pending)
+- 2022.04.05: [Projective Compensation in Calibration](https://www.tangramvision.com/blog/projective-compensation-in-calibration)
 
 ## Installation
 
