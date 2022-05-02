@@ -1,0 +1,35 @@
+-[ RECORD 1 ]-------+----------------------
+userid              | 10
+dbid                | 13757
+toplevel            | t
+queryid             | 2059596454762915818
+query               | SELECT * FROM artists
+plans               | 100
+total_plan_time     | 4.6373750000000005
+min_plan_time       | 0.030738
+max_plan_time       | 0.07399
+mean_plan_time      | 0.04637375000000001
+stddev_plan_time    | 0.0066957018263584574
+calls               | 100
+total_exec_time     | 158575.761936
+min_exec_time       | 1570.0188819999998
+max_exec_time       | 1624.1295579999999
+mean_exec_time      | 1585.7576193599996
+stddev_exec_time    | 10.636442294647289
+rows                | 1000000000
+shared_blks_hit     | 292800
+shared_blks_read    | 6076700
+shared_blks_dirtied | 0
+shared_blks_written | 0
+local_blks_hit      | 0
+local_blks_read     | 0
+local_blks_dirtied  | 0
+local_blks_written  | 0
+temp_blks_read      | 0
+temp_blks_written   | 0
+blk_read_time       | 0
+blk_write_time      | 0
+wal_records         | 0
+wal_fpi             | 0
+wal_bytes           | 0
+

@@ -74,7 +74,7 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 *Deriving Derivatives in Perception*
 
 - Code [here](2022.03.07_DerivingDerivativesInPerception)
-- 2022.03.07: [Deriving Derivatives in Perception](https://www.tangramvision.com/blog/deriving-derivatives-for-perception)
+- 2022.03.07 post: [Deriving Derivatives in Perception](https://www.tangramvision.com/blog/deriving-derivatives-for-perception)
 
 *Projective Compensation in Calibration*
 
@@ -84,7 +84,12 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 *Wrapping Your Head Around Numerical Precision*
 
 - Code [here](2022.04.14_WrappingYourHeadAroundNumericalPrecision)
-- 2022.04.14: [Wrapping Your Head Around Numerical Precision](https://www.tangramvision.com/blog/wrapping-your-head-around-numerical-precision)
+- 2022.04.14 post: [Wrapping Your Head Around Numerical Precision](https://www.tangramvision.com/blog/wrapping-your-head-around-numerical-precision)
+
+*How to Benchmark PostgreSQL Queries Well*
+
+- Code [here](2022.05.17_HowToBenchmarkPostgreSQLQueriesWell)
+- 2022.05.17 post: [How to Benchmark PostgreSQL Queries Well](https://www.tangramvision.com/blog/how-to-benchmark-postgresql-queries-well)
 
 ## Contributing to this project
 

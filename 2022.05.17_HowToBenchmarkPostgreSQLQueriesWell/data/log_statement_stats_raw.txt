@@ -1,0 +1,1070 @@
+2022-05-01 19:33:15.590 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:15.590 UTC [79] DETAIL:  ! system usage stats:
+	!	0.000052 s user, 0.000007 s system, 0.000058 s elapsed
+	!	[31.981685 s user, 4.313306 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6704] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	0/0 [1729/3274] voluntary/involuntary context switches
+2022-05-01 19:33:15.590 UTC [79] STATEMENT:  SET log_statement_stats = on;
+2022-05-01 19:33:17.142 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:17.142 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439712 s user, 0.111937 s system, 1.551971 s elapsed
+	!	[33.421462 s user, 4.425252 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/1 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	0/149 [1730/3423] voluntary/involuntary context switches
+2022-05-01 19:33:17.142 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:33:25.165 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:25.165 UTC [79] DETAIL:  ! system usage stats:
+	!	1.465871 s user, 0.095714 s system, 1.584450 s elapsed
+	!	[34.887457 s user, 4.520966 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	3/153 [1734/3577] voluntary/involuntary context switches
+2022-05-01 19:33:25.165 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:33:33.091 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:33.091 UTC [79] DETAIL:  ! system usage stats:
+	!	1.446684 s user, 0.096322 s system, 1.569005 s elapsed
+	!	[36.334243 s user, 4.617301 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1739/3728] voluntary/involuntary context switches
+2022-05-01 19:33:33.091 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:33:41.101 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:41.101 UTC [79] DETAIL:  ! system usage stats:
+	!	1.432782 s user, 0.115578 s system, 1.574864 s elapsed
+	!	[37.767131 s user, 4.732893 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [1744/3873] voluntary/involuntary context switches
+2022-05-01 19:33:41.101 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:33:49.046 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:49.046 UTC [79] DETAIL:  ! system usage stats:
+	!	1.451868 s user, 0.124469 s system, 1.599626 s elapsed
+	!	[39.219110 s user, 4.857376 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [1749/4021] voluntary/involuntary context switches
+2022-05-01 19:33:49.046 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:33:55.427 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:55.427 UTC [79] DETAIL:  ! system usage stats:
+	!	0.000085 s user, 0.000010 s system, 0.000095 s elapsed
+	!	[39.219301 s user, 4.857399 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	0/0 [1750/4021] voluntary/involuntary context switches
+2022-05-01 19:33:55.427 UTC [79] STATEMENT:  select 'COUNT RESULTS AFTER THIS';
+2022-05-01 19:33:57.007 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:33:57.007 UTC [79] DETAIL:  ! system usage stats:
+	!	1.455156 s user, 0.095874 s system, 1.579663 s elapsed
+	!	[40.674539 s user, 4.953283 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6705] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	5/147 [1756/4168] voluntary/involuntary context switches
+2022-05-01 19:33:57.007 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:04.961 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:04.961 UTC [79] DETAIL:  ! system usage stats:
+	!	1.435995 s user, 0.095979 s system, 1.555561 s elapsed
+	!	[42.110641 s user, 5.049275 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/3 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/154 [1761/4322] voluntary/involuntary context switches
+2022-05-01 19:34:04.961 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:12.858 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:12.858 UTC [79] DETAIL:  ! system usage stats:
+	!	1.392191 s user, 0.143539 s system, 1.560131 s elapsed
+	!	[43.502934 s user, 5.192827 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/140 [1766/4462] voluntary/involuntary context switches
+2022-05-01 19:34:12.858 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:20.825 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:20.825 UTC [79] DETAIL:  ! system usage stats:
+	!	1.443880 s user, 0.100445 s system, 1.571164 s elapsed
+	!	[44.946919 s user, 5.293285 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/154 [1771/4616] voluntary/involuntary context switches
+2022-05-01 19:34:20.825 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:28.793 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:28.793 UTC [79] DETAIL:  ! system usage stats:
+	!	1.428132 s user, 0.124472 s system, 1.576037 s elapsed
+	!	[46.375162 s user, 5.417771 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/147 [1776/4763] voluntary/involuntary context switches
+2022-05-01 19:34:28.793 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:36.811 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:36.811 UTC [79] DETAIL:  ! system usage stats:
+	!	1.472382 s user, 0.075554 s system, 1.571266 s elapsed
+	!	[47.847651 s user, 5.493337 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [1781/4912] voluntary/involuntary context switches
+2022-05-01 19:34:36.811 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:44.810 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:44.810 UTC [79] DETAIL:  ! system usage stats:
+	!	1.432914 s user, 0.124094 s system, 1.583476 s elapsed
+	!	[49.280710 s user, 5.617448 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1786/5065] voluntary/involuntary context switches
+2022-05-01 19:34:44.810 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:34:52.836 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:34:52.836 UTC [79] DETAIL:  ! system usage stats:
+	!	1.467661 s user, 0.088392 s system, 1.579357 s elapsed
+	!	[50.748478 s user, 5.705852 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1791/5216] voluntary/involuntary context switches
+2022-05-01 19:34:52.836 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:00.787 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:00.787 UTC [79] DETAIL:  ! system usage stats:
+	!	1.430607 s user, 0.120278 s system, 1.574019 s elapsed
+	!	[52.179347 s user, 5.826160 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [1796/5362] voluntary/involuntary context switches
+2022-05-01 19:35:00.787 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:08.696 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:08.696 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439174 s user, 0.112777 s system, 1.575196 s elapsed
+	!	[53.618628 s user, 5.938949 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/144 [1801/5506] voluntary/involuntary context switches
+2022-05-01 19:35:08.696 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:16.640 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:16.640 UTC [79] DETAIL:  ! system usage stats:
+	!	1.463322 s user, 0.095893 s system, 1.583224 s elapsed
+	!	[55.082063 s user, 6.034855 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/154 [1806/5660] voluntary/involuntary context switches
+2022-05-01 19:35:16.640 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:24.548 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:24.548 UTC [79] DETAIL:  ! system usage stats:
+	!	1.456350 s user, 0.103578 s system, 1.583438 s elapsed
+	!	[56.538525 s user, 6.138445 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/147 [1811/5807] voluntary/involuntary context switches
+2022-05-01 19:35:24.548 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:32.492 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:32.492 UTC [79] DETAIL:  ! system usage stats:
+	!	1.488890 s user, 0.080493 s system, 1.593016 s elapsed
+	!	[58.027528 s user, 6.218950 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [1816/5957] voluntary/involuntary context switches
+2022-05-01 19:35:32.492 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:40.397 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:40.397 UTC [79] DETAIL:  ! system usage stats:
+	!	1.432504 s user, 0.116036 s system, 1.571808 s elapsed
+	!	[59.460142 s user, 6.334998 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/142 [1821/6099] voluntary/involuntary context switches
+2022-05-01 19:35:40.397 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:48.354 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:48.354 UTC [79] DETAIL:  ! system usage stats:
+	!	1.443181 s user, 0.100735 s system, 1.569203 s elapsed
+	!	[60.903432 s user, 6.435744 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [1826/6248] voluntary/involuntary context switches
+2022-05-01 19:35:48.354 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:35:56.319 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:35:56.319 UTC [79] DETAIL:  ! system usage stats:
+	!	1.412396 s user, 0.123606 s system, 1.561681 s elapsed
+	!	[62.315947 s user, 6.559362 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/144 [1831/6392] voluntary/involuntary context switches
+2022-05-01 19:35:56.319 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:04.236 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:04.236 UTC [79] DETAIL:  ! system usage stats:
+	!	1.436676 s user, 0.099208 s system, 1.559289 s elapsed
+	!	[63.752740 s user, 6.658583 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1836/6543] voluntary/involuntary context switches
+2022-05-01 19:36:04.236 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:12.167 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:12.167 UTC [79] DETAIL:  ! system usage stats:
+	!	1.441675 s user, 0.107327 s system, 1.574507 s elapsed
+	!	[65.194525 s user, 6.765922 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1841/6696] voluntary/involuntary context switches
+2022-05-01 19:36:12.167 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:20.126 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:20.126 UTC [79] DETAIL:  ! system usage stats:
+	!	1.444816 s user, 0.103659 s system, 1.572949 s elapsed
+	!	[66.639460 s user, 6.869593 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/147 [1846/6843] voluntary/involuntary context switches
+2022-05-01 19:36:20.126 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:28.095 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:28.095 UTC [79] DETAIL:  ! system usage stats:
+	!	1.413536 s user, 0.115740 s system, 1.552551 s elapsed
+	!	[68.053108 s user, 6.985345 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [1851/6986] voluntary/involuntary context switches
+2022-05-01 19:36:28.095 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:35.978 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:35.978 UTC [79] DETAIL:  ! system usage stats:
+	!	1.486311 s user, 0.044617 s system, 1.554452 s elapsed
+	!	[69.539535 s user, 7.029974 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [1856/7129] voluntary/involuntary context switches
+2022-05-01 19:36:35.978 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:43.913 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:43.913 UTC [79] DETAIL:  ! system usage stats:
+	!	1.434559 s user, 0.127850 s system, 1.587438 s elapsed
+	!	[70.974208 s user, 7.157836 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [1861/7281] voluntary/involuntary context switches
+2022-05-01 19:36:43.913 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:51.833 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:51.833 UTC [79] DETAIL:  ! system usage stats:
+	!	1.411489 s user, 0.128348 s system, 1.565838 s elapsed
+	!	[72.385801 s user, 7.286194 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [1866/7429] voluntary/involuntary context switches
+2022-05-01 19:36:51.833 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:36:59.786 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:36:59.786 UTC [79] DETAIL:  ! system usage stats:
+	!	1.411851 s user, 0.131580 s system, 1.566641 s elapsed
+	!	[73.797760 s user, 7.417785 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [1871/7581] voluntary/involuntary context switches
+2022-05-01 19:36:59.786 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:07.800 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:07.800 UTC [79] DETAIL:  ! system usage stats:
+	!	1.419293 s user, 0.135525 s system, 1.579755 s elapsed
+	!	[75.217163 s user, 7.553321 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [1876/7733] voluntary/involuntary context switches
+2022-05-01 19:37:07.800 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:15.781 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:15.781 UTC [79] DETAIL:  ! system usage stats:
+	!	1.428981 s user, 0.128096 s system, 1.582476 s elapsed
+	!	[76.646242 s user, 7.681427 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1881/7884] voluntary/involuntary context switches
+2022-05-01 19:37:15.781 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:23.779 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:23.779 UTC [79] DETAIL:  ! system usage stats:
+	!	1.461317 s user, 0.099326 s system, 1.585215 s elapsed
+	!	[78.107674 s user, 7.780764 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1886/8035] voluntary/involuntary context switches
+2022-05-01 19:37:23.779 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:31.797 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:31.797 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439435 s user, 0.092731 s system, 1.558022 s elapsed
+	!	[79.547210 s user, 7.873505 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [1891/8181] voluntary/involuntary context switches
+2022-05-01 19:37:31.797 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:39.777 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:39.777 UTC [79] DETAIL:  ! system usage stats:
+	!	1.442685 s user, 0.108258 s system, 1.574404 s elapsed
+	!	[80.990005 s user, 7.981774 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [1896/8330] voluntary/involuntary context switches
+2022-05-01 19:37:39.777 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:47.686 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:47.686 UTC [79] DETAIL:  ! system usage stats:
+	!	1.478612 s user, 0.088243 s system, 1.590487 s elapsed
+	!	[82.468726 s user, 8.070028 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [1901/8479] voluntary/involuntary context switches
+2022-05-01 19:37:47.686 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:37:55.600 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:37:55.600 UTC [79] DETAIL:  ! system usage stats:
+	!	1.420009 s user, 0.111604 s system, 1.555664 s elapsed
+	!	[83.888850 s user, 8.181643 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/141 [1906/8620] voluntary/involuntary context switches
+2022-05-01 19:37:55.600 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:03.572 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:03.572 UTC [79] DETAIL:  ! system usage stats:
+	!	1.454865 s user, 0.099493 s system, 1.578700 s elapsed
+	!	[85.343824 s user, 8.281147 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [1911/8772] voluntary/involuntary context switches
+2022-05-01 19:38:03.572 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:11.612 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:11.612 UTC [79] DETAIL:  ! system usage stats:
+	!	1.471849 s user, 0.075976 s system, 1.572547 s elapsed
+	!	[86.815776 s user, 8.357133 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1916/8923] voluntary/involuntary context switches
+2022-05-01 19:38:11.612 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:19.584 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:19.584 UTC [79] DETAIL:  ! system usage stats:
+	!	1.438291 s user, 0.119833 s system, 1.581385 s elapsed
+	!	[88.254180 s user, 8.476977 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [1921/9073] voluntary/involuntary context switches
+2022-05-01 19:38:19.584 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:27.564 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:27.564 UTC [79] DETAIL:  ! system usage stats:
+	!	1.430001 s user, 0.111805 s system, 1.565201 s elapsed
+	!	[89.684290 s user, 8.588793 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [1926/9223] voluntary/involuntary context switches
+2022-05-01 19:38:27.564 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:35.525 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:35.525 UTC [79] DETAIL:  ! system usage stats:
+	!	1.413763 s user, 0.127785 s system, 1.564899 s elapsed
+	!	[91.098165 s user, 8.716589 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [1931/9366] voluntary/involuntary context switches
+2022-05-01 19:38:35.525 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:43.495 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:43.495 UTC [79] DETAIL:  ! system usage stats:
+	!	1.449047 s user, 0.112098 s system, 1.584089 s elapsed
+	!	[92.547321 s user, 8.828698 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/155 [1936/9521] voluntary/involuntary context switches
+2022-05-01 19:38:43.495 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:51.416 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:51.416 UTC [79] DETAIL:  ! system usage stats:
+	!	1.442836 s user, 0.095886 s system, 1.562233 s elapsed
+	!	[93.990265 s user, 8.924594 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [1941/9664] voluntary/involuntary context switches
+2022-05-01 19:38:51.416 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:38:59.400 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:38:59.400 UTC [79] DETAIL:  ! system usage stats:
+	!	1.435541 s user, 0.128335 s system, 1.589204 s elapsed
+	!	[95.425918 s user, 9.052940 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1946/9817] voluntary/involuntary context switches
+2022-05-01 19:38:59.400 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:07.386 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:07.386 UTC [79] DETAIL:  ! system usage stats:
+	!	1.458179 s user, 0.100202 s system, 1.581447 s elapsed
+	!	[96.884212 s user, 9.153153 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	3/149 [1950/9966] voluntary/involuntary context switches
+2022-05-01 19:39:07.386 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:15.423 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:15.423 UTC [79] DETAIL:  ! system usage stats:
+	!	1.405857 s user, 0.132175 s system, 1.561532 s elapsed
+	!	[98.290172 s user, 9.285338 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [1955/10109] voluntary/involuntary context switches
+2022-05-01 19:39:15.423 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:23.329 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:23.329 UTC [79] DETAIL:  ! system usage stats:
+	!	1.418337 s user, 0.128597 s system, 1.572815 s elapsed
+	!	[99.708620 s user, 9.413946 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [1960/10257] voluntary/involuntary context switches
+2022-05-01 19:39:23.329 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:31.250 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:31.250 UTC [79] DETAIL:  ! system usage stats:
+	!	1.433478 s user, 0.120136 s system, 1.580063 s elapsed
+	!	[101.142207 s user, 9.534093 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1965/10410] voluntary/involuntary context switches
+2022-05-01 19:39:31.250 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:39.208 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:39.208 UTC [79] DETAIL:  ! system usage stats:
+	!	1.417009 s user, 0.124470 s system, 1.564902 s elapsed
+	!	[102.559326 s user, 9.658573 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [1970/10556] voluntary/involuntary context switches
+2022-05-01 19:39:39.208 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:47.109 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:47.109 UTC [79] DETAIL:  ! system usage stats:
+	!	1.408124 s user, 0.140391 s system, 1.572537 s elapsed
+	!	[103.967558 s user, 9.798974 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [1975/10706] voluntary/involuntary context switches
+2022-05-01 19:39:47.109 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:39:55.069 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:39:55.069 UTC [79] DETAIL:  ! system usage stats:
+	!	1.441729 s user, 0.108154 s system, 1.573449 s elapsed
+	!	[105.409394 s user, 9.907138 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [1980/10855] voluntary/involuntary context switches
+2022-05-01 19:39:55.069 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:03.059 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:03.059 UTC [79] DETAIL:  ! system usage stats:
+	!	1.445377 s user, 0.107371 s system, 1.576125 s elapsed
+	!	[106.854880 s user, 10.014519 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [1985/11006] voluntary/involuntary context switches
+2022-05-01 19:40:03.059 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:11.033 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:11.033 UTC [79] DETAIL:  ! system usage stats:
+	!	1.435100 s user, 0.115537 s system, 1.575141 s elapsed
+	!	[108.290092 s user, 10.130066 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1990/11159] voluntary/involuntary context switches
+2022-05-01 19:40:11.033 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:19.031 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:19.031 UTC [79] DETAIL:  ! system usage stats:
+	!	1.416818 s user, 0.135329 s system, 1.575630 s elapsed
+	!	[109.707017 s user, 10.265405 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [1995/11312] voluntary/involuntary context switches
+2022-05-01 19:40:19.031 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:26.951 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:26.951 UTC [79] DETAIL:  ! system usage stats:
+	!	1.460970 s user, 0.088456 s system, 1.574386 s elapsed
+	!	[111.168097 s user, 10.353871 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/155 [2000/11467] voluntary/involuntary context switches
+2022-05-01 19:40:26.951 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:34.984 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:34.984 UTC [79] DETAIL:  ! system usage stats:
+	!	1.416902 s user, 0.136085 s system, 1.576265 s elapsed
+	!	[112.585111 s user, 10.489967 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2005/11618] voluntary/involuntary context switches
+2022-05-01 19:40:34.984 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:43.009 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:43.009 UTC [79] DETAIL:  ! system usage stats:
+	!	1.444287 s user, 0.100392 s system, 1.568191 s elapsed
+	!	[114.029499 s user, 10.590368 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [2010/11764] voluntary/involuntary context switches
+2022-05-01 19:40:43.009 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:51.037 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:51.037 UTC [79] DETAIL:  ! system usage stats:
+	!	1.433000 s user, 0.120089 s system, 1.576311 s elapsed
+	!	[115.462616 s user, 10.710468 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2015/11915] voluntary/involuntary context switches
+2022-05-01 19:40:51.037 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:40:59.004 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:40:59.004 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439209 s user, 0.111922 s system, 1.574863 s elapsed
+	!	[116.901931 s user, 10.822400 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2020/12065] voluntary/involuntary context switches
+2022-05-01 19:40:59.004 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:06.956 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:06.956 UTC [79] DETAIL:  ! system usage stats:
+	!	1.371042 s user, 0.163919 s system, 1.558330 s elapsed
+	!	[118.273089 s user, 10.986330 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/142 [2025/12207] voluntary/involuntary context switches
+2022-05-01 19:41:06.956 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:14.941 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:14.941 UTC [79] DETAIL:  ! system usage stats:
+	!	1.461069 s user, 0.075347 s system, 1.560215 s elapsed
+	!	[119.734269 s user, 11.061687 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [2030/12355] voluntary/involuntary context switches
+2022-05-01 19:41:14.941 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:22.890 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:22.890 UTC [79] DETAIL:  ! system usage stats:
+	!	1.418227 s user, 0.136576 s system, 1.579168 s elapsed
+	!	[121.152611 s user, 11.198274 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [2035/12507] voluntary/involuntary context switches
+2022-05-01 19:41:22.890 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:30.805 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:30.805 UTC [79] DETAIL:  ! system usage stats:
+	!	1.419672 s user, 0.135601 s system, 1.579673 s elapsed
+	!	[122.572392 s user, 11.333885 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2040/12657] voluntary/involuntary context switches
+2022-05-01 19:41:30.805 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:38.705 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:38.705 UTC [79] DETAIL:  ! system usage stats:
+	!	1.456601 s user, 0.088416 s system, 1.570345 s elapsed
+	!	[124.029116 s user, 11.422313 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2045/12802] voluntary/involuntary context switches
+2022-05-01 19:41:38.705 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:46.671 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:46.671 UTC [79] DETAIL:  ! system usage stats:
+	!	1.441957 s user, 0.111440 s system, 1.576750 s elapsed
+	!	[125.471181 s user, 11.533763 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [2050/12955] voluntary/involuntary context switches
+2022-05-01 19:41:46.671 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:41:54.744 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:41:54.744 UTC [79] DETAIL:  ! system usage stats:
+	!	1.457099 s user, 0.087727 s system, 1.570194 s elapsed
+	!	[126.928391 s user, 11.621500 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2055/13105] voluntary/involuntary context switches
+2022-05-01 19:41:54.744 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:02.692 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:02.692 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439343 s user, 0.119938 s system, 1.582963 s elapsed
+	!	[128.367848 s user, 11.741449 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/160 [2060/13265] voluntary/involuntary context switches
+2022-05-01 19:42:02.692 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:10.682 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:10.682 UTC [79] DETAIL:  ! system usage stats:
+	!	1.430033 s user, 0.116184 s system, 1.569957 s elapsed
+	!	[129.797988 s user, 11.857643 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2065/13410] voluntary/involuntary context switches
+2022-05-01 19:42:10.682 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:18.584 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:18.584 UTC [79] DETAIL:  ! system usage stats:
+	!	1.417394 s user, 0.132128 s system, 1.573008 s elapsed
+	!	[131.215495 s user, 11.989781 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2070/13560] voluntary/involuntary context switches
+2022-05-01 19:42:18.584 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:26.611 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:26.611 UTC [79] DETAIL:  ! system usage stats:
+	!	1.463429 s user, 0.099578 s system, 1.586444 s elapsed
+	!	[132.679022 s user, 12.089368 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/154 [2075/13714] voluntary/involuntary context switches
+2022-05-01 19:42:26.611 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:34.515 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:34.515 UTC [79] DETAIL:  ! system usage stats:
+	!	1.465654 s user, 0.087781 s system, 1.577162 s elapsed
+	!	[134.144789 s user, 12.177160 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [2080/13866] voluntary/involuntary context switches
+2022-05-01 19:42:34.515 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:42.508 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:42.508 UTC [79] DETAIL:  ! system usage stats:
+	!	1.431235 s user, 0.112292 s system, 1.567099 s elapsed
+	!	[135.576141 s user, 12.289463 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2085/14016] voluntary/involuntary context switches
+2022-05-01 19:42:42.508 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:50.466 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:50.466 UTC [79] DETAIL:  ! system usage stats:
+	!	1.457837 s user, 0.079799 s system, 1.561474 s elapsed
+	!	[137.034094 s user, 12.369272 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [2090/14159] voluntary/involuntary context switches
+2022-05-01 19:42:50.466 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:42:58.460 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:42:58.460 UTC [79] DETAIL:  ! system usage stats:
+	!	1.439839 s user, 0.115635 s system, 1.580410 s elapsed
+	!	[138.474065 s user, 12.484907 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/154 [2095/14314] voluntary/involuntary context switches
+2022-05-01 19:42:58.460 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:06.426 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:06.426 UTC [79] DETAIL:  ! system usage stats:
+	!	1.440340 s user, 0.119669 s system, 1.583528 s elapsed
+	!	[139.914513 s user, 12.604586 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/153 [2100/14467] voluntary/involuntary context switches
+2022-05-01 19:43:06.426 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:14.421 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:14.421 UTC [79] DETAIL:  ! system usage stats:
+	!	1.462905 s user, 0.088258 s system, 1.576797 s elapsed
+	!	[141.377533 s user, 12.692855 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [2105/14613] voluntary/involuntary context switches
+2022-05-01 19:43:14.421 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:22.438 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:22.438 UTC [79] DETAIL:  ! system usage stats:
+	!	1.437612 s user, 0.120144 s system, 1.581390 s elapsed
+	!	[142.815249 s user, 12.813009 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/155 [2110/14768] voluntary/involuntary context switches
+2022-05-01 19:43:22.438 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:30.463 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:30.463 UTC [79] DETAIL:  ! system usage stats:
+	!	1.450275 s user, 0.107843 s system, 1.581464 s elapsed
+	!	[144.265633 s user, 12.920862 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [2115/14920] voluntary/involuntary context switches
+2022-05-01 19:43:30.463 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:38.372 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:38.372 UTC [79] DETAIL:  ! system usage stats:
+	!	1.463723 s user, 0.092330 s system, 1.579599 s elapsed
+	!	[145.729463 s user, 13.013202 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2120/15070] voluntary/involuntary context switches
+2022-05-01 19:43:38.372 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:46.347 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:46.347 UTC [79] DETAIL:  ! system usage stats:
+	!	1.401986 s user, 0.136178 s system, 1.562539 s elapsed
+	!	[147.131538 s user, 13.149388 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/147 [2125/15217] voluntary/involuntary context switches
+2022-05-01 19:43:46.347 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:43:54.291 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:43:54.291 UTC [79] DETAIL:  ! system usage stats:
+	!	1.442822 s user, 0.092248 s system, 1.558594 s elapsed
+	!	[148.574472 s user, 13.241646 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2130/15362] voluntary/involuntary context switches
+2022-05-01 19:43:54.291 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:02.243 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:02.243 UTC [79] DETAIL:  ! system usage stats:
+	!	1.428565 s user, 0.107692 s system, 1.561660 s elapsed
+	!	[150.003149 s user, 13.349348 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2135/15513] voluntary/involuntary context switches
+2022-05-01 19:44:02.243 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:10.259 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:10.259 UTC [79] DETAIL:  ! system usage stats:
+	!	1.433505 s user, 0.108132 s system, 1.566643 s elapsed
+	!	[151.436772 s user, 13.457490 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [2140/15661] voluntary/involuntary context switches
+2022-05-01 19:44:10.259 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:18.229 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:18.229 UTC [79] DETAIL:  ! system usage stats:
+	!	1.412244 s user, 0.128022 s system, 1.563877 s elapsed
+	!	[152.849130 s user, 13.585522 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [2145/15807] voluntary/involuntary context switches
+2022-05-01 19:44:18.229 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:26.259 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:26.259 UTC [79] DETAIL:  ! system usage stats:
+	!	1.449428 s user, 0.108124 s system, 1.580866 s elapsed
+	!	[154.298669 s user, 13.693656 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2150/15958] voluntary/involuntary context switches
+2022-05-01 19:44:26.259 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:34.174 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:34.174 UTC [79] DETAIL:  ! system usage stats:
+	!	1.428816 s user, 0.120782 s system, 1.572983 s elapsed
+	!	[155.727595 s user, 13.814448 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2155/16109] voluntary/involuntary context switches
+2022-05-01 19:44:34.174 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:42.228 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:42.228 UTC [79] DETAIL:  ! system usage stats:
+	!	1.444451 s user, 0.092034 s system, 1.561289 s elapsed
+	!	[157.172167 s user, 13.906492 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2160/16254] voluntary/involuntary context switches
+2022-05-01 19:44:42.228 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:50.153 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:50.153 UTC [79] DETAIL:  ! system usage stats:
+	!	1.413763 s user, 0.120508 s system, 1.558055 s elapsed
+	!	[158.586041 s user, 14.027010 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/144 [2165/16398] voluntary/involuntary context switches
+2022-05-01 19:44:50.153 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:44:58.082 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:44:58.082 UTC [79] DETAIL:  ! system usage stats:
+	!	1.432558 s user, 0.111693 s system, 1.569220 s elapsed
+	!	[160.018709 s user, 14.138713 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [2170/16546] voluntary/involuntary context switches
+2022-05-01 19:44:58.082 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:06.056 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:06.056 UTC [79] DETAIL:  ! system usage stats:
+	!	1.424726 s user, 0.135712 s system, 1.585333 s elapsed
+	!	[161.443547 s user, 14.274435 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/146 [2175/16692] voluntary/involuntary context switches
+2022-05-01 19:45:06.056 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:13.986 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:13.986 UTC [79] DETAIL:  ! system usage stats:
+	!	1.450307 s user, 0.104199 s system, 1.577890 s elapsed
+	!	[162.893941 s user, 14.378642 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2180/16842] voluntary/involuntary context switches
+2022-05-01 19:45:13.986 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:21.896 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:21.896 UTC [79] DETAIL:  ! system usage stats:
+	!	1.444969 s user, 0.107377 s system, 1.575777 s elapsed
+	!	[164.339019 s user, 14.486029 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/152 [2185/16994] voluntary/involuntary context switches
+2022-05-01 19:45:21.896 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:29.798 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:29.798 UTC [79] DETAIL:  ! system usage stats:
+	!	1.457388 s user, 0.088117 s system, 1.568887 s elapsed
+	!	[165.796519 s user, 14.574155 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [2190/17143] voluntary/involuntary context switches
+2022-05-01 19:45:29.798 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:37.774 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:37.774 UTC [79] DETAIL:  ! system usage stats:
+	!	1.426940 s user, 0.127907 s system, 1.580112 s elapsed
+	!	[167.223566 s user, 14.702071 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/151 [2195/17294] voluntary/involuntary context switches
+2022-05-01 19:45:37.774 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:45.743 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:45.743 UTC [79] DETAIL:  ! system usage stats:
+	!	1.415975 s user, 0.120349 s system, 1.559928 s elapsed
+	!	[168.639658 s user, 14.822431 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [2200/17437] voluntary/involuntary context switches
+2022-05-01 19:45:45.743 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:45:53.736 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:45:53.736 UTC [79] DETAIL:  ! system usage stats:
+	!	1.456531 s user, 0.084040 s system, 1.563897 s elapsed
+	!	[170.096302 s user, 14.906480 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/143 [2205/17580] voluntary/involuntary context switches
+2022-05-01 19:45:53.736 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:01.647 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:01.647 UTC [79] DETAIL:  ! system usage stats:
+	!	1.449036 s user, 0.091735 s system, 1.563592 s elapsed
+	!	[171.545454 s user, 14.998225 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [2210/17728] voluntary/involuntary context switches
+2022-05-01 19:46:01.647 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:09.623 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:09.623 UTC [79] DETAIL:  ! system usage stats:
+	!	1.475322 s user, 0.127941 s system, 1.629599 s elapsed
+	!	[173.020894 s user, 15.126176 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	5/158 [2216/17886] voluntary/involuntary context switches
+2022-05-01 19:46:09.623 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:17.524 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:17.524 UTC [79] DETAIL:  ! system usage stats:
+	!	1.426318 s user, 0.131854 s system, 1.581673 s elapsed
+	!	[174.447322 s user, 15.258039 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/148 [2221/18034] voluntary/involuntary context switches
+2022-05-01 19:46:17.524 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:25.421 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:25.421 UTC [79] DETAIL:  ! system usage stats:
+	!	1.446091 s user, 0.112530 s system, 1.581964 s elapsed
+	!	[175.893522 s user, 15.370579 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2226/18179] voluntary/involuntary context switches
+2022-05-01 19:46:25.421 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:33.316 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:33.316 UTC [79] DETAIL:  ! system usage stats:
+	!	1.424077 s user, 0.128357 s system, 1.576056 s elapsed
+	!	[177.317705 s user, 15.498946 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2231/18329] voluntary/involuntary context switches
+2022-05-01 19:46:33.316 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:41.224 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:41.224 UTC [79] DETAIL:  ! system usage stats:
+	!	1.404126 s user, 0.132362 s system, 1.560425 s elapsed
+	!	[178.721947 s user, 15.631318 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/144 [2236/18473] voluntary/involuntary context switches
+2022-05-01 19:46:41.224 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:49.181 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:49.181 UTC [79] DETAIL:  ! system usage stats:
+	!	1.409829 s user, 0.148165 s system, 1.581669 s elapsed
+	!	[180.131885 s user, 15.779493 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/149 [2241/18622] voluntary/involuntary context switches
+2022-05-01 19:46:49.181 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:46:57.096 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:46:57.096 UTC [79] DETAIL:  ! system usage stats:
+	!	1.409111 s user, 0.140101 s system, 1.575303 s elapsed
+	!	[181.541116 s user, 15.919605 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/150 [2246/18772] voluntary/involuntary context switches
+2022-05-01 19:46:57.096 UTC [79] STATEMENT:  select * from artists;
+2022-05-01 19:47:05.003 UTC [79] LOG:  QUERY STATISTICS
+2022-05-01 19:47:05.003 UTC [79] DETAIL:  ! system usage stats:
+	!	1.447567 s user, 0.107958 s system, 1.579066 s elapsed
+	!	[182.988793 s user, 16.027573 s system total]
+	!	187488 kB max resident size
+	!	0/0 [0/0] filesystem blocks in/out
+	!	0/0 [10892/6708] page faults/reclaims, 0 [0] swaps
+	!	0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
+	!	4/145 [2251/18917] voluntary/involuntary context switches
+2022-05-01 19:47:05.003 UTC [79] STATEMENT:  select * from artists;
