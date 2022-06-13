@@ -68,7 +68,7 @@ output "website_endpoint" {
 # If using cloudfront and cloudfront invalidations:
 #
 #resource "null_resource" "invalidate_cache" {
-#  triggers = locals.file_hashes
+#  triggers = local.file_hashes
 #
 #  provisioner "local-exec" {
 #    command = "aws --profile=aws_admin cloudfront create-invalidation --distribution-id=${aws_cloudfront_distribution.my_distribution.id} --paths=/*"
