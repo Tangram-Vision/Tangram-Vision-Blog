@@ -91,6 +91,12 @@ Part I](https://www.tangramvision.com/blog/coordinate-systems-and-how-to-relate-
 - Code [here](2022.05.17_HowToBenchmarkPostgreSQLQueriesWell)
 - 2022.05.17 post: [How to Benchmark PostgreSQL Queries Well](https://www.tangramvision.com/blog/how-to-benchmark-postgresql-queries-well)
 
+*GitLab CI/CD Recipes: Updating your Docker image automatically.*
+
+- Code [here](2022.09.13_GitLabRecipesCommitFromCI)
+- 2022.09.13 post: [GitLab CI/CD Recipes: Updating your docker image
+  automatically](http://www.tangramvision.com/blog/gitlab-ci-cd-recipes-updating-your-docker-image-automatically)
+
 ## Contributing to this project
 
 This is an open-source project; if you'd like to contribute a feature or adapt the code, feel free! We suggest you check
