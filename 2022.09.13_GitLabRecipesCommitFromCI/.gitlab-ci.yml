@@ -1,0 +1,27 @@
+stages:
+  - build
+
+build-and-publish:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - export BUILD_VERSION=$(cat ${CI_PROJECT_DIR}/VERSION | tr -d '\n')
+    - /kaniko/executor
+          --context $CI_PROJECT_DIR
+          --dockerfile $CI_PROJECT_DIR/Dockerfile
+          --destination $CI_REGISTRY_IMAGE:latest
+          --destination $CI_REGISTRY_IMAGE:$BUILD_VERSION
+          --cache
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+scheduled-docker-build:
+  stage: build
+  image: debian:latest
+  script:
+    - 'apt update && apt install curl jq git -y'
+    - bash check-rust-latest.sh
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" && $CI_COMMIT_REF_PROTECTED
