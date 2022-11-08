@@ -173,9 +173,10 @@ INSERT INTO songs (album_id, title)
 
 RESET ROLE;
 -- Reminder: We previously created a viewable_by_all policy on albums that shows
--- all rows to SELECT queries issued by all roles. We show that policy again
--- here for reference:
-ALTER POLICY viewable_by_all ON albums
+-- all rows to SELECT queries issued by all roles. We re-create that policy here
+-- for reference:
+DROP POLICY viewable_by_all ON albums;
+CREATE POLICY viewable_by_all ON albums
     FOR SELECT
     USING (true);
 -- For fans: restrict visibility to albums with a release date in the past.
@@ -190,7 +191,7 @@ CREATE POLICY hide_unreleased_from_other_artists ON albums
     AS RESTRICTIVE
     FOR SELECT
     TO artist
-    USING (released <= now() or (artist_id = substr(current_user, 8)::int);
+    USING (released <= now() or (artist_id = substr(current_user, 8)::int));
 
 -- Alternate implementation using only PERMISSIVE (rather than RESTRICTIVE)
 -- policies.
@@ -201,10 +202,11 @@ CREATE POLICY viewable_by_all ON albums
     FOR SELECT
     USING (released <= now());
 -- Reminder: We previously created an affect_own_albums policy on albums that
--- already allows the artist to see their own albums. We show that policy again
+-- already allows the artist to see their own albums. We re-create that policy
 -- here for reference:
-ALTER POLICY affect_own_albums ON albums
-    FOR ALL
+DROP POLICY affect_own_albums ON albums;
+CREATE POLICY affect_own_albums ON albums
+    -- FOR ALL
     TO artist
     USING (artist_id = substr(current_user, 8)::int);
 
@@ -212,7 +214,8 @@ ALTER POLICY affect_own_albums ON albums
 -- To control visibility of songs, we simply query for the corresponding album
 -- and the RLS policy on the albums table will determine if we can see the
 -- album. If we see the album, we'll see the songs.
-ALTER POLICY viewable_by_all ON songs
+DROP POLICY viewable_by_all ON songs;
+CREATE POLICY viewable_by_all ON songs
     FOR SELECT
     USING (
         EXISTS (
