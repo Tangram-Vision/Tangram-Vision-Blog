@@ -6,7 +6,7 @@ edition = "2018"
 publish = false
 
 [dependencies]
-argmin = { version = "0.4.4", features = ["nalgebral"] }
-nalgebra = { version = "0.26.2", features = ["serde-serialize"] }
+argmin = { version = "0.5", features = ["nalgebral"] }
+nalgebra = { version = "0.30", features = ["serde-serialize"] }
 rand = "0.8"
 serde = "1.0"
